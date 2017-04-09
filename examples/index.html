@@ -142,7 +142,6 @@
           ['Dryden Native Friendship Center', 49.785095, -92.836728],
           ['Fort Erie Native Friendship Center', 42.897425, -78.969886],
           ['Hamilton Regional Indian Center', 43.243432, -79.818947],
-          // ['Indian Friendship Center', 46.112276, -84.311316],
           ['Ininew Friendship Center', 49.063539, -81.029545],
           ['Kapuskasing Indian Friendship Center', 49.421154, -82.429312],
           ['MoosoneeTimmins Satellite Office', 48.477060, -81.325662],
@@ -157,31 +156,8 @@
           ['Six Nations of the Grand River Territory', 43.074852, -80.110086],
         ];
 
-        // for (var i = 0; i < rez.length; i++) {
-        // 			marker = new L.marker([rez[i][1],rez[i][2]])
-        // 				.bindPopup(rez[i][0])
-        // 				.addTo(map).on('click', function () {
-        //             for (var i = 0; i < rez.length; i++){
-        //               if (checkclick === false){
-        //                 sidebar.open()
-        //                 checkclick = true;
-        //               }else{
-        //                 sidebar.close()
-        //                 checkclick = false;
-        //               }
-        //             }
-        //         });
-        // 		}
-
-        var rez = [
-          ['batchewana',46.528494, -84.261409],
-          ['caldwell',42.052845, -82.597453],
-          ['delaware',42.581660, -81.893242],
-        ];
-
             var markers = L.markerClusterGroup();
             for (var i = 0; i < rez.length; i++) {
-			          //  var a = addressPoints[i];
 			        var title = (rez[i][0]);
 			        var marker = L.marker(new L.LatLng(rez[i][1], rez[i][2]));
 			           marker.bindPopup(title);
@@ -193,49 +169,12 @@
                     checkclick = true;
                     }else{
                       sidebar.close(rez[i][0]);
-                      // Alert(sidebar);
                       checkclick = false;
                   }
               });
             };
 
             map.addLayer(markers);
-
-            // markers.on('click', function () {
-            //       if (checkclick === false){
-            //         sidebar.open('caldwell');
-            //         checkclick = true;
-            //      }else{
-            //         sidebar.close('caldwell');
-            //         checkclick = false;
-            //     }
-            // });
-
-            // if (score > 90){
-            //     console.log ('A');
-            // } else if (score > 80){
-            //     console.log('B')
-            // } else if(score > 70){
-            //     console.log('C')
-            // } else {
-            //     console.log('Failed')
-            // }
-
-        //
-        // var Batchewana = L.marker([46.528494, -84.261409]).addTo(map).on('click', function () {
-        //   if (checkclick === false){
-        //     sidebar.open('Batchewana')
-        //     checkclick = true;
-        //   }else{
-        //     sidebar.close('Batchewana')
-        //     checkclick = false;
-        //   }
-        // });
-        //
-        //
-        // var marker2 = L.marker([44.2312, -76.4860]).addTo(map).on('click', function () {
-        //     sidebar.open('union');
-        // });
 
         var sidebar = L.control.sidebar('sidebar').addTo(map);
     </script>
