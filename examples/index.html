@@ -48,24 +48,29 @@
 
         <!-- Tab panes -->
         <div class="sidebar-content">
-            <div class="sidebar-pane" id="caldwell">
+            <div class="sidebar-pane" id="batchewana">
                 <h1 class="sidebar-header">
-                    ONWA Services etc...
+                  batchewana etc...
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
 
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             </div>
 
             <div class="sidebar-pane" id="caldwell">
                 <h1 class="sidebar-header">
-                    UNION Services etc...
+                    caldwell etc...
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+            </div>
+
+            <div class="sidebar-pane" id="delaware">
+                <h1 class="sidebar-header">
+                  delaware etc...
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
 
@@ -98,7 +103,6 @@
     <script>
         var map = L.map('map');
         map.setView([46.490002, -81.010002], 6);
-        var checkclick = false;
         // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGF2ZWxsZ2lzIiwiYSI6ImNpeDZ3YnFvbzAxNHgyeXF5NDVob3VvanEifQ.2_vKfp2QtZlz70-C1Kkphw', {
           // mapbox://styles/mapbox/outdoors-v10
@@ -106,76 +110,124 @@
             attribution: 'Map data &copy; OpenStreetMap contributors'
         }).addTo(map);
 
+        // var rez = [
+        //   ['batchewana',46.528494, -84.261409],
+        //   ['caldwell',42.052845, -82.597453],
+        //   ['delaware',42.581660, -81.893242],
+        //   ['hiawatha',44.187107, -78.216286],
+        //   ['tyendinaga',44.196279, -77.159679],
+        //   ['onieda',42.986911, -81.243209],
+        //   ['wahta',44.994805, -79.777490],
+        //   ['anishinaabe',49.792174, -94.429471],
+        //   ['Lac La Croix',48.374324, -92.160865],
+        //   ['Couchiching',48.634405, -93.359912],
+        //   ['Rainy River',48.721392, -94.567169],
+        //   ['Kawehnoke',45.004686, -74.721690],
+        //   ['Kanatakon',45.001107, -74.646984],
+        //   ['Tsi Snaihne',45.032167, -74.711186],
+        //   ['New Credit Indian Reserve ',42.999032, -80.095569],
+        //   ['Brantford Hamilton', 43.145349, -80.257248],
+        //   ['Haldiman County',42.939827, -79.815525],
+        //   ['Six Nations of the Grand River Territory', 43.074852, -80.110086],
+        //   ['Atikokan', 48.761685, -91.618703],
+        //   ['Blind River', 46.183489, -82.963631],
+        //   ['Brampton', 43.729314, -79.761614],
+        //   ['Chapleau', 47.843279, -83.402500],
+        //   ['Cochrane', 49.068002, -81.015080],
+        //   ['Dryden', 49.789650, -92.776715],
+        //   ['Fort Frances', 50.16662, -86.69996],
+        //   ['Geraldton', 49.724995, -86.950139],
+        //   ['Gravenhurst', 44.917638, -79.382582],
+        //   ['Hamilton', 43.255468, -79.866809],
+        //   ['Kenora', 49.765202, -94.489972],
+        //   ['Barrie Native Friendship Center - Georgian Bay Sattlelite', 44.394842, -79.694441],
+        //   ['CanAm Indian Friendship Center of Windsor', 42.278205, -83.008353],
+        //   ['Council Fire Native Culture Center', 43.659150, -79.366237],
+        //   ['Dryden Native Friendship Center', 49.785095, -92.836728],
+        //   ['Fort Erie Native Friendship Center', 42.897425, -78.969886],
+        //   ['Hamilton Regional Indian Center', 43.243432, -79.818947],
+        //   // ['Indian Friendship Center', 46.112276, -84.311316],
+        //   ['Ininew Friendship Center', 49.063539, -81.029545],
+        //   ['Kapuskasing Indian Friendship Center', 49.421154, -82.429312],
+        //   ['MoosoneeTimmins Satellite Office', 48.477060, -81.325662],
+        //   ["M'Wikwedong Native Cultural Resource Center", 44.576379, -80.927069],
+        //   ['Ne-Chee Native Friendship Center', 49.46104, 94.27571],
+        //   ['Niagara Regional Native Center', 43.163357, -79.168520],
+        //   ['Nishnawbe - Gamik Native Friendship Center', 50.099233, -91.916700],
+        //   ["N'Swakamok Friendship Center", 46.493405, -80.999045],
+        //   ['Nogojiwanong Friendship Center', 44.277055, -78.324517],
+        //   ['North Bay Indian Friendship Center', 46.316653, -79.459308],
+        //   ['Odawa Native Friendship Center', 45.408642, -75.718609],
+        //   ['Six Nations of the Grand River Territory', 43.074852, -80.110086],
+        // ];
+
         var rez = [
           ['batchewana',46.528494, -84.261409],
           ['caldwell',42.052845, -82.597453],
           ['delaware',42.581660, -81.893242],
-          ['hiawatha',44.187107, -78.216286],
-          ['tyendinaga',44.196279, -77.159679],
-          ['onieda',42.986911, -81.243209],
-          ['wahta',44.994805, -79.777490],
-          ['anishinaabe',49.792174, -94.429471],
-          ['Lac La Croix',48.374324, -92.160865],
-          ['Couchiching',48.634405, -93.359912],
-          ['Rainy River',48.721392, -94.567169],
-          ['Kawehnoke',45.004686, -74.721690],
-          ['Kanatakon',45.001107, -74.646984],
-          ['Tsi Snaihne',45.032167, -74.711186],
-          ['New Credit Indian Reserve ',42.999032, -80.095569],
-          ['Brantford Hamilton', 43.145349, -80.257248],
-          ['Haldiman County',42.939827, -79.815525],
-          ['Six Nations of the Grand River Territory', 43.074852, -80.110086],
-          ['Atikokan', 48.761685, -91.618703],
-          ['Blind River', 46.183489, -82.963631],
-          ['Brampton', 43.729314, -79.761614],
-          ['Chapleau', 47.843279, -83.402500],
-          ['Cochrane', 49.068002, -81.015080],
-          ['Dryden', 49.789650, -92.776715],
-          ['Fort Frances', 50.16662, -86.69996],
-          ['Geraldton', 49.724995, -86.950139],
-          ['Gravenhurst', 44.917638, -79.382582],
-          ['Hamilton', 43.255468, -79.866809],
-          ['Kenora', 49.765202, -94.489972],
-          ['Barrie Native Friendship Center - Georgian Bay Sattlelite', 44.394842, -79.694441],
-          ['CanAm Indian Friendship Center of Windsor', 42.278205, -83.008353],
-          ['Council Fire Native Culture Center', 43.659150, -79.366237],
-          ['Dryden Native Friendship Center', 49.785095, -92.836728],
-          ['Fort Erie Native Friendship Center', 42.897425, -78.969886],
-          ['Hamilton Regional Indian Center', 43.243432, -79.818947],
-          ['Ininew Friendship Center', 49.063539, -81.029545],
-          ['Kapuskasing Indian Friendship Center', 49.421154, -82.429312],
-          ['MoosoneeTimmins Satellite Office', 48.477060, -81.325662],
-          ["M'Wikwedong Native Cultural Resource Center", 44.576379, -80.927069],
-          ['Ne-Chee Native Friendship Center', 49.46104, 94.27571],
-          ['Niagara Regional Native Center', 43.163357, -79.168520],
-          ['Nishnawbe - Gamik Native Friendship Center', 50.099233, -91.916700],
-          ["N'Swakamok Friendship Center", 46.493405, -80.999045],
-          ['Nogojiwanong Friendship Center', 44.277055, -78.324517],
-          ['North Bay Indian Friendship Center', 46.316653, -79.459308],
-          ['Odawa Native Friendship Center', 45.408642, -75.718609],
-          ['Six Nations of the Grand River Territory', 43.074852, -80.110086],
         ];
 
+        var checkclick = false;
+        // for (var i = 0; i < rez.length; i++) {
+        // 			marker = new L.marker([rez[i][1],rez[i][2]])
+        // 				       .bindPopup(rez[i][0])
+        // 				       .addTo(map).on('click', function () {
+        //             // for (var i = 0; i < rez.length; i++){
+        //                   if (checkclick === false){
+        //                     sidebar.close(rez[i][0]);
+        //                     checkclick = true;
+        //               }else{
+        //                 sidebar.open(rez[i][0]);
+        //                 checkclick = false;
+        //               }
+        //             // }
+        //         });
+        // 		}
+
+            // for (var i = 0; i < rez.length; i++) {
+            //   console.log ("'" + rez[i][0] + "'")
+            // }
             var markers = L.markerClusterGroup();
+
             for (var i = 0; i < rez.length; i++) {
-			        var title = (rez[i][0]);
-			        var marker = L.marker(new L.LatLng(rez[i][1], rez[i][2]));
-			           marker.bindPopup(title);
-			           markers.addLayer(marker);
+                 var title = (rez[i][0])
+			           var marker = L.marker(new L.LatLng(rez[i][1], rez[i][2]));
                  markers.on('click', function () {
-                  if (checkclick === false){
-                    sidebar.open(rez[i][0]);
-                    // Alert(sidebar);
-                    checkclick = true;
+                    if (checkclick === false){
+                      sidebar.close(title);
+                      checkclick = true;
                     }else{
-                      sidebar.close(rez[i][0]);
+                      sidebar.open(title);
                       checkclick = false;
-                  }
-              });
+                    }
+                  });
+                  markers.bindPopup(title);
+                  markers.addLayer(marker);
             };
 
+            // markers.on('click', function () {
+            //    if (checkclick === false){
+            //      test = markers.title
+            //      sidebar.close(test);
+            //      checkclick = true;
+            //    }else{
+            //      sidebar.open(test);
+            //      checkclick = false;
+            //    }
+            //  });
+        //     for (var i = 0; i < rez.length; i++) {
+        //     var test = (rez[i][0]);
+        //       if (checkclick === false){
+        //         sidebar.close(test);
+        //         checkclick = true;
+        //       }else{
+        //         sidebar.open(test);
+        //         checkclick = false;
+        //       }
+        //     }
+        //   });
+        // };
             map.addLayer(markers);
-
         var sidebar = L.control.sidebar('sidebar').addTo(map);
     </script>
 </body>
