@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sidebar-v2 example</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+    <link rel="stylesheet" href="css/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="css/MarkerCluster.css" />
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                <!-- <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li> -->
+                <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+
+            <ul role="tablist">
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+                          <div class="sidebar-content">
+                        <div class="sidebar-pane" id="home">
+                            <h1 class="sidebar-header">
+                                      First Nation Service Map
+                                    </h1>
+                            <h3>This is the title page for your map.  Please add some content for this area..</h3>
+                            <p class="lorem">The program focuses on Anishnaabek families, children and youth</p>
+                            <h4>Local activities include:
+                            </h4>
+                            <ul>
+                                <li>
+                                    Traditional Ceremonies (Sweat Lodge, Full Moon, etc.)
+                                </li>
+                                <li>
+                                    Traditional Teachings (Creation Story, maple syrup season at elementary school, etc.)
+                                </li>
+                                <li>
+                                    Traditional Socials, Spring Fasting Camp
+                                </li>
+                                <li>
+                                    Ojibway language immersion
+                                </li>
+                                <li>
+                                    Family Wellness Plans
+                                </li>
+                                <li>
+                                    Resource Library
+                                </li>
+                            </ul>
+                        </div>
+
+                            <div class="sidebar-pane" id="Union of Ontario Indians">
+                        <h1 class="sidebar-header">
+                                      Union of Ontario Indians
+                                        <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                                    </h1>
+
+                        <p class="lorem">Ambe Minobmaadzidda Program will promote and provide opportunities to engage in cultural teachings and ceremonies. The Turtle Medicine Wheel, designed specifically for this program, will be used as a cultural guide and teaching tool to learn to live
+                            in balance while building, maintaining and strengthening healthy relationships.</p>
+                        <p class="lorem">The program focuses on Anishnaabek families, children and youth</p>
+                        <h5>Local activities include:
+                                    </h5>
+                        <ul>
+                            <li>
+                                Traditional Ceremonies (Sweat Lodge, Full Moon, etc.)
+                            </li>
+                            <li>
+                                Traditional Teachings (Creation Story, maple syrup season at elementary school, etc.)
+                            </li>
+                            <li>
+                                Traditional Socials, Spring Fasting Camp
+                            </li>
+                            <li>
+                                Ojibway language immersion
+                            </li>
+                            <li>
+                                Family Wellness Plans
+                            </li>
+                            <li>
+                                Resource Library
+                            </li>
+                        </ul>
+                    </div>
+
+            <div class="sidebar-pane" id="Association of Iroquois and Allied Indians">
+                <h1 class="sidebar-header">
+                    Association of Iroquois and Allied Indians
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p class="lorem">AIAI's Family Well-Being program is focused on building on community strengths and external partnerships to design and deliver programs that support families and communities as a whole. </p>
+                <h5>Local program plans are in development around general themes of creating programs and services that include:
+                            </h5>
+                <ul>
+                    <li>
+                      Traditional healing;
+                    </li>
+                    <li>
+                      Culture and language;
+                    </li>
+                    <li>
+                      Creating and improving local networks;
+                    </li>
+                    <li>
+                      Increasing programming and services for Children & Youth;
+                    </li>
+                    <li>
+                      Increasing Child Welfare supports;
+                    </li>
+                    <li>
+                        Capital and infrastructure.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-pane" id="Grand Council Treaty #3">
+                <h1 class="sidebar-header">
+                Grand Council Treaty #3
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p class="lorem">Four regional lead agencies engaged and consulted with their communities to develop local program models that were based on 7 overarching themes that were identified:</p>
+                <ul>
+                    <li>
+                      	Community Resource Coordination
+                    </li>
+                    <li>
+                      Family Preservation
+                    </li>
+                    <li>
+                      System navigation
+                    </li>
+                    <li>
+                      Prevention activities
+                    </li>
+                    <li>
+                      Cultural and traditional programming
+                    </li>
+                    <li>
+                      Family supports
+                    </li>
+                    <li>
+                        Networking
+                    </li>
+                  </ul>
+                    <h4>The shared program objectives include: </h4>
+                    <ul>
+                      <li>
+                        Family Well Being workers to connect clients to existing services and programs in their community, and provide culturally based, preventative and holistic family supports.
+                      </li>
+                      <li>
+                        Establish community based programming for individuals and families (e.g. culture-based groups, workshops, family circles, life skills supports, peer support groups)
+                      </li>
+                      <li>
+                        Establish a safe place to address crisis/emergency situations for children, youth and families
+                      </li>
+                      <li>
+                        Establish ongoing training and professional development for the Family Well Being workers
+                      </li>
+                    </ul>
+                    <h4>Activities and programming are diverse, and can include:</h4>
+                    <ul>
+                      <li>
+                        Family Support/Mentoring and Skill Development (E.g. weekly sharing circles)
+                      </li>
+                      <li>
+                        Intergenerational group support and recreational activities;
+                      </li>  <li>
+                        Advocacy and linking with program resources;
+                        </li>
+                         <li>
+                           Clinical and cultural counselling;
+                          </li>
+                          <li>
+                            Planning for children, youth and families transitioning in or out of services
+                            </li>
+                            <li>
+                              Cultural, language and traditional land based activities
+                              </li>
+                              <li>
+                                Supporting Traditional roles and responsibilities: strong involvement of community elders in teachings and supporting families
+                                </li>
+                                <li>
+                                  Men's programming
+                                </li>
+                                <li>
+                                  Awareness and promotion of community understanding of forms of violence and safety planning to lead to community decrease of forms of violence
+                                </li>
+                    </ul>
+                </ul>
+            </div>
+
+
+            <div class="sidebar-pane" id="Independent First Nations">
+                <h1 class="sidebar-header">
+                    Independent First Nations
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program
+                </h2>
+                  <p class="lorem">
+                    The EVAIW FWB Program takes a wholistic, family focused approach. IFN will coordinate and will support First Nation communities in program delivery.The client group for the FWB worker is identified by each IFN Community, however may include the whole family and specific family members and groups (women, men, Elders, youth).
+                    </p>
+                    <h3>
+                      Each local program will:
+                    </h3>
+                    <ul>
+                      <li>
+                        Provide supports, services and healing for the whole family and specific groups (women, men, Elders, youth).
+                      </li>
+                      <li>
+                        Provide land-based and culturally-based programming.
+                      </li>
+                      <li>
+                        Offer workshops and education in the community about the causes of violence and how to live in a healthy way.
+                      </li>
+                      <li>
+                        Offer case management for complex cases.
+                      </li>
+                      <li>
+                        Provide wrap-around services for families.
+                      </li>
+                    </ul>
+                </div>
+
+            <div class="sidebar-pane" id="Mohawk Council of Akwasasn">
+                <h1 class="sidebar-header">
+                    Mohawk Council of Akwasasne
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Akwesasne Family Wellness / Well-being Program
+                </h2>
+                <p class="lorem">The focus of the program is to use a therapeutic educational model that is inclusive of cultural teachings and counseling modalities to create safe and therapeutic environments, and wrap-around services for women, children and men, to promote family well-being and growth.</p>
+                <h4>The program client focus is on women, men and children/youth.
+                </h4>
+                            <h4>The program seeks to do this by addressing family violence through:
+                            </h4>
+                <ul>
+                    <li>
+                      Providing safe housing options for women and children, men and families in separate housing units;
+                    </li>
+                    <li>
+                      Educational and counseling opportunities in partnership to focus on prevention, safety planning and counseling;
+                    </li>
+                    <li>
+                      And flexible service delivery with access to after-hours supports, and mobile service delivery to reduce accessibility barriers due to lack of transportation and poverty.
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="sidebar-pane" id="Nishnawbe Aski Nation">
+                <h1 class="sidebar-header">
+                  Nishnawbe Aski Nation
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>NAN Family Well-Being program
+                </h2>
+                <p class="lorem">The NAN FWBp will contribute to the vision of happy, healthy, children and families in NAN communities where women and girls are safe, protected and respected. Further, the FWBp will support families to build healthy bonds, connections and relationships by empowering them and activating their voices through wholistic and culturally appropriate healing processes.
+                </p>
+                <h4>NAN's program coordination role includes:
+                </h4>
+                <ul>
+                    <li>
+                      Administering the program funding flow through of funds;
+                    </li>
+                    <li>
+                      Establishing a FWB p Coordination Team to provide guidance, coordination;
+                    </li>
+                    <li>
+                      Assisting with evaluation and data collection and evaluation, including the design of a unique evaluation and data collection system;
+                    </li>
+                    <li>
+                      Supporting training and community capacity development through toolkits and training modules.
+                    </li>
+                </ul>
+                <h4>All NAN First Nations will deliver the Family Well-Being Program and will design and build the program according to the community's needs and priorities, with guidance from NAN staff
+                </h4>
+                <ul>
+                    <li>
+                      	Family Well-Being Workers will deliver the FWBp under the direction of community-level Health Directors (or other, as determined by First Nation) and will work in collaboration with other community-based programs.
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="sidebar-pane" id='Six Nations of the Grand River'>
+                <h1 class="sidebar-header">
+                  Six Nations Of the Grand River
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>TBC
+                </h2>
+                <p class="lorem">The Six Nations FWBp will reflect a holistic Haudenosaunee way, culture and practices:
+                </p>
+                <h4>Activities include:
+                </h4>
+                <ul>
+                    <li>
+                      Focus on prevention, family healing and wellness with the goal of reducing the incidence of children/youth entering the child welfare system, youth justice system and reducing family violence.
+                    </li>
+                    <li>
+                      Build on existing community resources and programs to maximize existing resources and FWBp resources
+                    </li>
+                    <li>
+                      Develop a balance of mind, body, spirit and emotion
+                    </li>
+                    <li>
+                      Develop a “good mind” by demonstrating honesty, truth and integrity
+                    </li>
+                    <li>
+                      Develop an understanding of how current behaviours impact the generations to come (Seven Generations)
+                    </li>
+                </ul>
+                <p class="lorem">The program will be available to all community members - children, youth, families and Elders - in the six Haudenosaunee Nations: Mohawk, Cayuga, Oneida, Seneca, Onondaga and Tuscarora (Delaware and those from other Nations visiting our community.
+                </p>
+                <h4>The FWBp will facilitate the expansion of local programs and services, including:
+                </h4>
+                <ul>
+                    <li>
+                      Family Support Unit Teacher/Homemaker program
+                    </li>
+                    <li>
+                      Tsi Tionkwatention A'no:wara Rason:ne (My Home on Turtle Island) Youth Lodge
+                    </li>
+                    <li>
+                      Six Nations Social Services & Child and Family Services Youth Drop-in Program
+                    </li>
+                    <li>
+                      Family/Youth Education Worker & Life Skills Coach for Youth Lodge and Six Nation Social Services, Child and Family Services
+                    </li>
+                    <li>
+                      Safe Place Program  Temporary Housing Support for a family "at risk" of involvement with Child Protection services, youth justice or family violence.
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="sidebar-pane" id="Metis Nation of Ontario">
+                <h1 class="sidebar-header">
+                  Metis Nation of Ontario
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Metis Family Well-Being Program
+                </h2>
+                <p class="lorem">
+                </p>
+                <h4>Activities include:
+                </h4>
+                <ul>
+                    <li>
+                      Cultural: Programs focused on outreach and cultural awareness training to the broad service sector to ensure cultural supports for Metis citizens and increased opportunities for youth leadership.
+                    </li>
+                    <li>
+                      Well-Being: Direct services to Metis children, youth, families that are holistic and culturally reflective (E.g. wellness planning, advocacy, referrals, education events)
+                    </li>
+                </ul>
+                <h4>The Metis FWBP will focus on Metis children, youth and their families, as well as outreach and education to mainstream service providers.
+                </h4>
+                <ul>
+                    <li>
+                      	Activities will cover a range that will target prevention through life skill development, involvement in culturally specific crafts, music, dancing, connecting with Elders and building healthy relationships. Client centered work will focus on advocacy, education and assisting with system navigation.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-pane" id="Ottawa Inuit Children's Centre">
+                <h1 class="sidebar-header">
+                  Ottawa Inuit Children's Centre
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Family Well-Being program
+                </h2>
+                <p class="lorem">The FWBp  supports the well-being and capacity-building of the Inuit community. OICC’s Family Well Being program builds on the strengths of the child and their family and provides supports tailored to the unique needs of each family. The programs’ emphasis is on prevention and cultural acquisition.
+                </p>
+                <h4>The program focus is Inuit families, including women, men, adoptive parents, children and youth in the Ottawa area.
+                </h4>
+                <h4>The Family Well-Being Program model has five components:
+                </h4>
+                <ul>
+                    <li>
+                      Family Intake Coordination and parent outreach.
+                    </li>
+                    <li>
+                      Cultural Programming (e.g. Land-based family camp, Innunguiniq Parenting program, Elder Advisors).
+                    </li>
+                    <li>
+                      Safe Spaces (e.g. Family drop-in, Youth drop-in, Women's Circle, Mens Group)
+                    </li>
+                    <li>
+                      Individual Support & Crisis management (e.g. After hours crisis support, Case management, Accompaniment, resource supports (e.g. emergency food cards, transportation support)
+                    </li>
+                    <li>
+                      Capacity Building (e.g. building cultural competency capacity at other Inuit serving agencies in Ottawa).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-pane" id="Tungasuvvingat Inuit">
+                <h1 class="sidebar-header">
+                  Tungasuvvingat Inuit
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>
+                  Children, Youth and Family Centre for Inuit - Supporting Inuit Children and Families
+                </h2>
+                <p class="lorem">Grounded in Inuit culture and traditions, TI's program seeks to facilitate opportunities for Inuit youth to be living Inummariq, facilitate early intervention and reduce the harmful effects of violence on Inuit families by making community supports available for families in crisis. The program will focus on Inuit children, youth, women and their families in the Ottawa and Toronto regions.
+                </p>
+                <h4>Activities include:
+                </h4>
+                <ul>
+                    <li>
+                      Connecting clients to existing services and programs in their geographic community.
+                    </li>
+                    <li>
+                      Developing culturally-based, preventative and holistic supports to be distributed and adopted by partners and stakeholders across Ontario.
+                    </li>
+                    <li>
+                      Coordinating family wellness planning.
+                    </li>
+                    <li>
+                      Providing counselling services and programs to families, children and youth who are at risk or have been exposed to and/or have experienced violence.
+                    </li>
+                    <li>
+                      Providing opportunities for urban Inuit to connect to their culture and their families through art, gatherings, dance, time on the land, outings and music.
+                    </li>
+                    <li>
+                      Programming that facilitates a safe space for Inuit to express themselves in their language of choice, either directly or with the support of an interpreter.
+                    </li>
+                    <li>
+                      Access to the Family Well Being Centre for families involved with CAS to facilitate a welcoming space for families to visit and work toward restoring the family unit.
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="sidebar-pane" id="Ontario Native Women's Association">
+                <h1 class="sidebar-header">
+                  Ontario Native Women's Association
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Circles of Care program
+                </h2>
+                <p class="lorem">The Circles of Care Program focuses on Indigenous women and their children who are involved with the child welfare system and violence against women sector, their families, and communities.
+                  The program is designed to support clients who arrive at the door "in crisis" by first stabilizing their current situation, and then building the support systems that are needed to move and stay away from crisis situations.</p>
+                <h4>Activities include:
+                </h4>
+                <ul>
+                    <li>
+                      Working closely with clients to provide a circle of care that responds to the cultural, mental, physical, emotional and spiritual needs of the woman through close collaboration with Indigenous and non-Indigenous services in the community.
+                    </li>
+                    <li>
+                      Providing direct services (crisis management, traditional supports, systems navigation) and advocacy support.
+                    </li>
+                    <li>
+                      Partnerships with other service providers across sectors to create culturally safe systems for Indigenous women and families to support their well-being.
+                      </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-pane" id="Mississaugas of the New Credit First Nation">
+                <h1 class="sidebar-header">
+                  Mississaugas of the New Credit First Nation
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Akwesasne Family Wellness / Well-being Program
+                </h2>
+                <p class="lorem">The Maamwi Gnawending Program will provide prevention-focused services to families who are at risk of becoming involved with Child and Family Services and women who have been exposed to, or are at risk of being exposed to, intimate partner violence and children in care.
+                </p>
+                <p class="lorem">Clients will be able to utilize cultural practices (e.g. smudging before/during/after counselling session) and have access to both Western and culturally-based materials and resources. Programs offered will be from both traditional and western perspectives, and facilitated by culturally sensitive staff members.
+                </p>
+                <h4>Activities include:
+                </h4>
+                <ul>
+                    <li>
+                      Supportive counselling: staff will provide a confidential and safe space for clients to share their concerns, experiences. This support will be provided either in-person in the office, or via email or telephone (voice or text). Staff will also offer recommendations of additional/follow up services if required by the client.
+                    </li>
+                    <li>
+                      Family oriented programming geared toward healthy parent/child relationships and parenting workshops
+                    </li>
+                    <li>
+                      Childcare for participants in program events
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-pane" id="Mississaugas of the New Credit First Nation">
+                <h1 class="sidebar-header">
+                  Mississaugas of the New Credit First Nation
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <h2>Akwesasne Family Wellness / Well-being Program
+                </h2>
+                <p class="lorem">The Maamwi Gnawending Program will provide prevention-focused services to families who are at risk of becoming involved with Child and Family Services and women who have been exposed to, or are at risk of being exposed to, intimate partner violence and children in care.
+                </p>
+                <p class="lorem">Clients will be able to utilize cultural practices (e.g. smudging before/during/after counselling session) and have access to both Western and culturally-based materials and resources. Programs offered will be from both traditional and western perspectives, and facilitated by culturally sensitive staff members.
+                </p>
+                <h4>Activities include:
+                </h4>
+                <ul>
+                    <li>
+                      Supportive counselling: staff will provide a confidential and safe space for clients to share their concerns, experiences. This support will be provided either in-person in the office, or via email or telephone (voice or text). Staff will also offer recommendations of additional/follow up services if required by the client.
+                    </li>
+                    <li>
+                      Family oriented programming geared toward healthy parent/child relationships and parenting workshops
+                    </li>
+                    <li>
+                      Childcare for participants in program events
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+
+            <div class="sidebar-pane" id="profile">
+                <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="messages">
+                <h1 class="sidebar-header">Contact Us<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h2>ONWA Service Map on Family Wellness and Well-being Program
+                </h2>
+                <p class="lorem">If you have any questions or comments regarding this map we would like to hear from you.
+                </p>
+                <h3>Contact Staff and Map Focal Points:
+                </h3>
+                <h3>Ontario Native Women's Association:
+                </h3>
+                <p>
+                Cheryl Reid <br />
+                Policy Analyst <br />
+                <a href="http://www.onwa.ca/">Ontario Native Women's Association</a><br />
+                <a href="mailto:creid@onwa.ca">creid@onwa.ca</a><br />
+                </p>
+                <h3>Ahjibeck Tech Consulting:
+                </h3>
+                <p>
+                William Lavell <br />
+                Spatial Developer <br />
+                <a href="https://wlavell2016.github.io/">Ahjibeck Tech Consulting</a><br />
+                <a href="mailto:william.lavell@gmail.com">william.lavell@gmail.com</a><br />
+                </p>
+
+                <!-- <form method="POST" action="http://formspree.io/william.lavell@gmail.com">
+                  <input type="email" name="email" placeholder="Your email">
+                  <textarea name="message" placeholder="Your message"></textarea>
+                  <button type="submit">Send</button>
+                </form> -->
+            </div>
+
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+
+    <!-- <a href="https://github.com/Turbo87/sidebar-v2/"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <script src="js/leaflet-sidebar.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <!-- <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script>
+    <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script> -->
+    <script src="js/leaflet.featuregroup.subgroup.js"></script>
+    <script>
+        var map = L.map('map', {
+                zoomSnap: 0.25
+                });
+        map.setView([49.8062891, -84.1434475], 5.50);
+
+        // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGF2ZWxsZ2lzIiwiYSI6ImNpeDZ3YnFvbzAxNHgyeXF5NDVob3VvanEifQ.2_vKfp2QtZlz70-C1Kkphw', {
+          // mapbox://styles/mapbox/outdoors-v10
+            zoomSnap: 0.10,
+            maxZoom: 18,
+            attribution: 'Map data &copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+
+        var rez = [
+['Chippewas of Rama First Nation',  44.38480,-79.21053,  'Union of Ontario Indians',  'Ambe Minobmaadzidda "Leading the Good Life"'],
+['Batchewana First Nation',  46.528494, -84.261409,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Caldwell First Nation',  42.052845, -82.597453,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Delaware Nation at Moraviantown',  42.581660, -81.893242,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Hiawatha First Nation',  44.187107, -78.216286,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Tyendinaga - Mohawks of the Bay of Quinte',  44.196279, -77.159679,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Oneida Nation of the Thames',  42.986911, -81.243209,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Wahta Mohawks',  44.994805, -79.777490,  'Association of Iroquois and Allied Indians',  'TBC'],
+['Lac La Croix',  48.374324, -92.160865,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Couchiching',  48.634405, -93.359912,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Rainy River',  48.721392, -94.567169,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Naicatchewenin',  48.61912, -93.6744557,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Mitaanjigamiing',  48.711567, -93.3877667,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Big Island',  49.097766,  -94.315497,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Nigigoonisiminikaaning',  48.710164, -92.946868,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Seine River',  48.766349,  -92.616613,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Paawidigong First Nation Forum (PFNF)',  49.78446, -92.8376491,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Eagle Lake',  49.6494166, -93.541171,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Wabauskang',  50.316667, -93.1855216,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Wabigoon Lake',  49.7019369, -92.8789903,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Lac Des Milles Lac',  48.8798909, -90.7321972,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Anishinaabeg of Kabapikotawangen Resource Council (AKRC)',  49.409817,  -94.095002,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Onigaming',  49.111040,  -93.926212,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Big Grassy',  49.097780,  -94.315239,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Northwest Angel #33',  49.765746,  -94.486130,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Animakee Wa Zhing (Northwest Angle #37)',  49.4108329, -94.0980217,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Kenora Chiefs Advisory (KCA)',  49.7717933, -94.4928781,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Obashkaandagaang',  49.7195769, -94.5862947,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Grassy Narrows',  50.150557, -94.0151037,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Ochiichagwe\'Babigo\'Ining',  49.8913376, -94.5416236,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Shoal Lake #40',  49.705852, -95.0692247,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Naotkamegwanning',  49.4108329, -94.0980217,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Wauzhushk Onigum',  49.7595179, -94.4897385,  'Grand Council Treaty #3',  'Family Well Being Program'],
+['Animbiigoo Zaagi\'igan Anishinaabek First Nation',  49.7987898, -89.0984183,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Bkejwanong Territory',  42.562236,  -82.498371,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Bingwi Neyaashi First Nation',  48.430683, -89.2297297,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Chippewas of Saugeen',  44.512620,  -81.327528,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Chippewas of Nawash',  44.9080805, -81.0242664,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Kitchenuhmaykoosib Inninuwug First Nation',  53.818788,  -89.835114,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Iskatewizaagegan Independent First Nation #39',  49.617921,  -95.107944,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Shawanaga First Nation',  45.5138039, -80.275754,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Temagami First Nation',  46.980668, -80.0711626,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Wabaseemoong First Nation',  50.133333, -94.9521887,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Whitesand First Nation',  49.3680951, -90.2485097,  'Independent First Nations',  'Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program'],
+['Atikokan',  48.761685, -91.618703,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Blind River',  46.183489, -82.963631,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Brampton',  43.729314, -79.761614,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Chapleau',  47.843279, -83.402500,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Cochrane',  49.068002, -81.015080,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Dryden',  49.789650, -92.776715,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Fort Frances',  50.16662, -86.69996,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Geraldton',  49.724995, -86.950139,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Gravenhurst',  44.917638, -79.382582,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Hamilton',  43.255468, -79.866809,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Kenora',  49.765202, -94.489972,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Kitchener',  43.4503 ,  -80.4832 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Mattawa',  46.7379 ,  -119.9028 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Midland',  31.9973 ,  -102.0779 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Nipigon',  49.0157 ,  -88.2683 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['North Bay',  46.3091 ,  -79.4608 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Northbrook', 44.7333 ,  -77.1667 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Oshawa',  43.8971 ,  -78.8658 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Ottawa',  45.4215 ,  -75.6972 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Owen Sound',  44.5690 ,  -80.9406 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Peterborough',  44.3091 ,  -78.3197 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Sault Ste Marie',  46.5219 ,  -84.3461 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Sudbury',  46.5221 ,  -80.9530 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Temiskaming',  47.3101 ,  -79.4843 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Thunder Bay',  48.3809 ,  -89.2477 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Timmins',  48.4758 ,  -81.3305 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Toronto',  43.6532 ,  -79.3832 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Thorold',  43.1236 ,  -79.1989 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Windsor',  42.3149 ,  -83.0364 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['New Credit Indian Reserve 40A',  42.999032, -80.095569,  'Mississaugas of the New Credit First Nation',  'Maamwi Gnawending Program - "Caring Together" Program'],
+['Brantford ',  43.145349, -80.257248,  'Mississaugas of the New Credit First Nation',  'Maamwi Gnawending Program - "Caring Together" Program'],
+['Haldiman County',  42.939827, -79.815525,  'Mississaugas of the New Credit First Nation',  'Maamwi Gnawending Program - "Caring Together" Program'],
+['Hamilton',  43.2557,  -79.8711,  'Mississaugas of the New Credit First Nation',  'Maamwi Gnawending Program - "Caring Together" Program'],
+['Kawehno:ke (Cornwall, Island Ontario)',  45.004686, -74.721690,  'Mohawk Council of Akwasasne',  'Akwasasne Family Wellness/ Wellbeing Program'],
+['Kanatakon (St. Regis, Québec)',  45.001107, -74.646984,  'Mohawk Council of Akwasasne',  'Akwasasne Family Wellness/ Wellbeing Program'],
+['Tsi Snaihne (Snye, Québec)',  45.032167, -74.711186,  'Mohawk Council of Akwasasne',  'Akwasasne Family Wellness/ Wellbeing Program'],
+['Aroland First Nation',  50.166619, -86.699957,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Attawapiskat First Nation',  52.925815, -82.430622,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Bearskin Lake First Nation',  53.899500, -90.991564,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Brunswick House First Nation',  47.840502, -83.399739,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Cat Lake First Nation',  51.721164, -91.820146,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Chapleau Cree First Nation',  47.8263661, -83.4238226,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Chapleau Ojibwe First Nation',  47.8281403, -83.4057698,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Constance Lake First Nation',  49.8062891, -84.1434475,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Deer Lake First Nation',  52.6101678, -94.0803188,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Eabametoong First Nation',  49.774669, -85.9374469,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Flying Post First Nation',  49.0106959, -88.2632534,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Fort Albany First Nation',  52.207757, -81.684454,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Fort Severn First Nation',  56.0019558, -87.7023814,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Ginoogaming First Nation',  49.7356529, -86.5281013,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Hornepayne First Nation',  49.221992,  -84.773874,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Kasabonika Lake First Nation',  53.607741, -88.814978,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Kashechewan First Nation',  52.2889771, -81.6595713,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Keewaywin First Nation',  52.9936443, -92.9022931,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Kingfisher Lake First Nation',  53.033333, -89.8355216,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Koocheching First Nation',  53.1071652, -92.5440645,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Lac Seul First Nation',  50.3959062, -92.938342,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['McDowell Lake First Nation',  50.3959062, -92.938342,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Marten Falls First Nation',  51.629799, -85.9473807,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Matachewan First Nation',  48.0128737, -80.6037427,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Mattagami First Nation',  47.7973055, -81.5332857,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Mishkeegogamang First Nation',  51.234647, -90.2409217,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Missanabie Cree First Nation',  46.5091609, -84.3323897,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Mocreebec Council of the Cree Nation',  51.256743,  -80.616702,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Moose Cree First Nation',  48.476317, -81.3367616,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Muskrat Dam First Nation',  53.386598, -91.8142406,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Neskantaga First Nation',  52.261551,  -87.887740,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Nibinamik First Nation',  49.774704,  -85.937340,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['North Caribou Lake First Nation',  52.950019,  -91.333161,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['North Spirit Lake First Nation',  52.499993,  -92.415999,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Pikangikum First Nation',  51.804306,  -93.993384,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Poplar Hill First Nation',  52.1072352, -94.2958504,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Sachigo Lake First Nation',  53.874096, -92.170359,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Sandy Lake First Nation',  53.0637519, -93.323933,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Slate Falls First Nation',  51.1692421, -91.5913921,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['TaykwaTagamou Nation',  49.003946, -80.8338963,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Wahgoshig First Nation',  48.6364569, -79.9867595,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Wapekeka First Nation',  53.818763, -89.8350929,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Wawakapewin First Nation',  53.4478044, -89.1427038,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Webequie First Nation',  49.774669, -85.9374469,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Whitewater Lake First Nation',  50.7303521, -89.131843,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Weenusk First Nation',  54.9938942, -85.4299296,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Wunnumin Lake First Nation',  52.93887, -90.7962086,  'Nishnawbe Aski Nation',  'NAN Family Well- Being Program'],
+['Barrie Native Friendship Center - Georgian Bay Sattlelite',  44.394842, -79.694441,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['CanAm Indian Friendship Center of Windsor',  42.278205, -83.008353,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Council Fire Native Culture Center',  43.659150, -79.366237,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Dryden Native Friendship Center',  49.785095, -92.836728,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Fort Erie Native Friendship Center',  42.897425, -78.969886,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Hamilton Regional Indian Center',  43.243432, -79.818947,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+// ['Indian Friendship Center',  ,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Ininew Friendship Center',  49.063539, -81.029545,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Kapuskasing Indian Friendship Center',  49.421154, -82.429312,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Moosonee - Timmins Satellite Office',  48.477060, -81.325662,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['M\'Wikwedong Native Cultural Resource Center',  44.576379, -80.927069,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Ne-Chee Native Friendship Center',  49.46104, -94.27571,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Niagara Regional Native Center',  43.163357, -79.168520,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Nishnawbe - Gamik Native Friendship Center',  50.099233, -91.916700,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['N\'Swakamok Friendship Center',  46.493405, -80.999045,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Nogojiwanong Friendship Center',  44.277055, -78.324517,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['North Bay Indian Friendship Center',  46.316653, -79.459308,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Odawa Native Friendship Center',  45.408642, -75.718609,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Parry Sound Friendship Center - N\'Swakamok Satellite',  46.493375, -80.999013,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Peel Aboriginal Network',  43.6301935,  -79.674074,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Red Lake Indian Friendship Centre',  51.0238919, -93.8214505,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Samia Lambton Native Friendship Centre',  42.9730803, -82.4031388,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Timmins Native Friendship Centre',  48.4706868, -81.3301514,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Thunderbird Friendship Centre',  49.7206524, -86.9524059,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Thuder Bay Indian Friendship Centre',  48.4466 ,  -89.2017 ,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['United Native Friendship Centre',  48.6113 ,  -93.3983 ,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
+['Fort Erie',  42.9018 ,  -78.9722 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Sioux Lookout',  50.0978 ,  -91.9220 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Midland',  31.9973 ,  -102.0779 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Hamilton',  43.2557 ,  -79.8711 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Thunder Bay',  48.3809 ,  -89.2477 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Toronto',  43.6532 ,  -79.3832 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Timmins',  48.4758 ,  -81.3305 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Kenora',  49.7670 ,  -94.4894 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Ottawa',  45.4215 ,  -75.6972 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Ottawa',  45.4215 ,  -75.6972 ,  'Ottawa Inuit Children\'s Centre',  'Family Well-Being Program'],
+['Six Nations of the Grand River Territory',  43.074852, -80.110086,  'Six Nations of the Grand River',  'TBC'],
+['Ottawa',  45.4215 ,  -75.6972 ,  'Tungasuvvingat Inuit',  'Children, Youth and Family Centre for Inuit - Supporting Inuit Children and Families'],
+['Toronto',  43.6532 ,  -79.3832 ,  'Tungasuvvingat Inuit',  'Children, Youth and Family Centre for Inuit - Supporting Inuit Children and Families']
+];
+
+        // var rez = [
+        //   {
+        //     title: 'Chippeewas of Rama First Nation',
+        //     lat: 44.38480,
+        //     lng: -79.21053,
+        //     programme:'Ambe Minobmaadzidda "Leading the Good Life"',
+        //     organization:'Chippewas of Rama'
+        //   },
+        // ];
+
+        var checkclick = false;
+        // var layerUNION = L.layerGroup().addTo(map);
+        // var layerIro = L.layerGroup().addTo(map);
+        // var layerGrand = L.layerGroup().addTo(map);
+        // var layerMohawk = L.layerGroup().addTo(map);
+        // var layerSauga = L.layerGroup().addTo(map);
+        // var layerAski = L.layerGroup().addTo(map);
+        // var layerSix = L.layerGroup().addTo(map);
+        // var layerMetis = L.layerGroup().addTo(map);
+        // var layerFriend = L.layerGroup().addTo(map);
+        // var layerONWA = L.layerGroup().addTo(map);
+        // var layerInuit = L.layerGroup().addTo(map);
+        // var layerIndependant = L.layerGroup().addTo(map);
+
+        var markers = L.markerClusterGroup();
+        var layerUNION = L.featureGroup.subGroup(markers).addTo(map);
+        var layerIro = L.featureGroup.subGroup(markers).addTo(map);
+        var layerGrand = L.featureGroup.subGroup(markers).addTo(map);
+        var layerMohawk = L.featureGroup.subGroup(markers).addTo(map);
+        var layerSauga = L.featureGroup.subGroup(markers).addTo(map);
+        var layerAski = L.featureGroup.subGroup(markers).addTo(map);
+        var layerSix = L.featureGroup.subGroup(markers).addTo(map);
+        var layerMetis = L.featureGroup.subGroup(markers).addTo(map);
+        var layerFriend = L.featureGroup.subGroup(markers).addTo(map);
+        var layerOttawaInuit = L.featureGroup.subGroup(markers).addTo(map);
+        var layerONWA = L.featureGroup.subGroup(markers).addTo(map);
+        var layerInuit = L.featureGroup.subGroup(markers).addTo(map);
+        var layerIndependant = L.featureGroup.subGroup(markers).addTo(map);
+
+        var checkclick = false
+
+
+        // var markers = L.markerClusterGroup.layerSupport().addTo(map);
+        markers.addTo(map);
+
+        rez.forEach(function(location) {
+          var marker = L.marker(new L.LatLng((location[1]), (location[2])));
+          marker.bindPopup((location[0]));
+          // marker.bindPopup(location.title);
+          markers.addLayer(marker);
+          // marker.title = location.title;
+          marker.title = location[3];
+          console.log(marker.title);
+          if (marker.title === 'Union of Ontario Indians'){
+            // console.log('b');
+            layerUNION.addLayer(marker);
+          } else if (marker.title === 'Association of Iroquois and Allied Indians'){
+            // console.log('c');
+              layerIro.addLayer(marker);
+          } else if (marker.title === 'Grand Council Treaty #3'){
+            layerGrand.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Mohawk Council of Akwasasne'){
+            layerMohawk.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Mississaugas of the New Credit First Nation'){
+            layerSauga.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Nishnawbe Aski Nation'){
+            layerAski.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Six Nations of the Grand River'){
+            layerSix.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Metis Nation of Ontario'){
+            layerMetis.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Ontario Federation of Indigenous Friendship Centres'){
+            layerFriend.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Ontario Native Women\'s Association'){
+            layerONWA.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Ottawa Inuit Children\'s Centre'){
+            layerOttawaInuit.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Tungasuvvingat Inuit'){
+            layerInuit.addLayer(marker);
+            // console.log('d');
+          } else if (marker.title === 'Independent First Nations'){
+            layerIndependant.addLayer(marker);
+            // console.log('d');
+          } else {
+            console.log('e');
+          }
+
+          marker.on('click', function () {
+            if (checkclick === false){
+              sidebar.open(marker.title);
+              checkclick = true;
+            }else{
+              sidebar.close(marker.title);
+              checkclick = false;
+            }
+          });
+        });
+
+        var communities = {
+          // 'All': markers,
+          'Union of Ontario Indians': layerUNION,
+          'Association of Iroquois and Allied Indians': layerIro,
+          'Grand Council Treaty #3': layerGrand,
+          'Independent First Nations': layerIndependant,
+          'Mohawk Council of Akwasasne': layerMohawk,
+          'Mississaugas of the New Credit First Nation': layerSauga,
+          'Nishnawbe Aski Nation': layerAski,
+          'Six Nations Of the Grand River': layerSix,
+          'Metis Nation of Ontario': layerMetis,
+          'Ottawa Inuit Children\'s Centre': layerOttawaInuit,
+          'Tungasuvvingat Inuit': layerInuit,
+          'Ontario Federation of Indigenous Friendship Centres': layerFriend,
+          'Ontario Native Women\'s Association': layerONWA,
+      };
+
+
+        L.control.layers(communities).addTo(map);
+        // L.control.layers(null, Iro, Grand, Mohawk, Sauga, Aski, Metis, Friend, Onwa, Inuit, Independent).addTo(map);
+
+        // map.addLayer(markers);
+        var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+    </script>
+</body>
+</html>
