@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>sidebar-v2 example</title>
+    <title>First Nation Service Map</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -19,6 +19,9 @@
             margin: 0;
         }
 
+        .title{
+          z-index: 1
+        }
         html, body, #map {
             height: 100%;
             font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -36,12 +39,23 @@
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <!-- <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li> -->
+                <!-- <li><a href="#Union of Ontario Indians" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#Association of Iroquois and Allied Indians" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#Grand Council Treaty #3" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#Independent First Nations" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#Mohawk Council of Akwasasne" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#Nishnawbe Aski Nation" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li> -->
+
                 <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
             </ul>
 
             <ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                <!-- <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li> -->
             </ul>
         </div>
 
@@ -249,7 +263,7 @@
                     </ul>
                 </div>
 
-            <div class="sidebar-pane" id="Mohawk Council of Akwasasn">
+            <div class="sidebar-pane" id="Mohawk Council of Akwasasne">
                 <h1 class="sidebar-header">
                     Mohawk Council of Akwasasne
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
@@ -584,7 +598,9 @@
         </div>
     </div>
 
-    <div id="map" class="sidebar-map"></div>
+    <div id="map" class="sidebar-map">
+    </div>
+
 
     <!-- <a href="https://github.com/Turbo87/sidebar-v2/"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
     <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
@@ -595,9 +611,9 @@
     <script src="js/leaflet.featuregroup.subgroup.js"></script>
     <script>
         var map = L.map('map', {
-                zoomSnap: 0.25
+                zoomSnap: 0.10
                 });
-        map.setView([49.8062891, -84.1434475], 5.50);
+        map.setView([49.8062891, -84.1434475], 5.45);
 
         // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGF2ZWxsZ2lzIiwiYSI6ImNpeDZ3YnFvbzAxNHgyeXF5NDVob3VvanEifQ.2_vKfp2QtZlz70-C1Kkphw', {
@@ -665,8 +681,8 @@
 ['Hamilton',  43.255468, -79.866809,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
 ['Kenora',  49.765202, -94.489972,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
 ['Kitchener',  43.4503 ,  -80.4832 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
-['Mattawa',  46.7379 ,  -119.9028 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
-['Midland',  31.9973 ,  -102.0779 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Mattawa',  46.3175 ,  -78.7022 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
+['Midland',  44.7495 ,  -79.8922 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
 ['Nipigon',  49.0157 ,  -88.2683 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
 ['North Bay',  46.3091 ,  -79.4608 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
 ['Northbrook', 44.7333 ,  -77.1667 ,  'Metis Nation of Ontario',  'Metis Family Well-Being Program'],
@@ -764,7 +780,7 @@
 ['United Native Friendship Centre',  48.6113 ,  -93.3983 ,  'Ontario Federation of Indigenous Friendship Centres',  'Cultural Resources Coordinators'],
 ['Fort Erie',  42.9018 ,  -78.9722 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
 ['Sioux Lookout',  50.0978 ,  -91.9220 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
-['Midland',  31.9973 ,  -102.0779 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
+['Midland',  44.7495 ,  -79.8922 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
 ['Hamilton',  43.2557 ,  -79.8711 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
 ['Thunder Bay',  48.3809 ,  -89.2477 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
 ['Toronto',  43.6532 ,  -79.3832 ,  'Ontario Native Women\'s Association',  'Circles of Childcare program'],
