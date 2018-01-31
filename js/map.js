@@ -1,4 +1,4 @@
-var data2 = [
+data2 = [
     {
     "type": "FeatureCollection",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
@@ -258,6 +258,7 @@ var data2 = [
 
 
 
+
 var map = L.map('map', {
         zoomSnap: 0.10
         });
@@ -268,146 +269,155 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/
   // mapbox://styles/mapbox/outdoors-v10
     zoomSnap: 0.10,
     maxZoom: 18,
+    // layers: [communities],
     attribution: 'Map data &copy; OpenStreetMap contributors'
 }).addTo(map);
 
 
-L.control.zoom({
-     position:'topright'
-}).addTo(map);
+// L.control.zoom({
+//      position:'topright'
+// }).addTo(map);
 
+
+//******************************************************************************
+/* general variables for the map*/
 var checkclick = false;
-// var layerUNION = L.layerGroup().addTo(map);
-// var layerIro = L.layerGroup().addTo(map);
-// var layerGrand = L.layerGroup().addTo(map);
-// var layerMohawk = L.layerGroup().addTo(map);
-// var layerSauga = L.layerGroup().addTo(map);
-// var layerAski = L.layerGroup().addTo(map);
-// var layerSix = L.layerGroup().addTo(map);
-// var layerMetis = L.layerGroup().addTo(map);
-// var layerFriend = L.layerGroup().addTo(map);
-// var layerONWA = L.layerGroup().addTo(map);
-// var layerInuit = L.layerGroup().addTo(map);
-// var layerIndependant = L.layerGroup().addTo(map);
-
-
-// var layerUNION = L.featureGroup.subGroup(markers).addTo(map);
-// var layerIro = L.featureGroup.subGroup(markers).addTo(map);
-// var layerGrand = L.featureGroup.subGroup(markers).addTo(map);
-// var layerMohawk = L.featureGroup.subGroup(markers).addTo(map);
-// var layerSauga = L.featureGroup.subGroup(markers).addTo(map);
-// var layerAski = L.featureGroup.subGroup(markers).addTo(map);
-// var layerSix = L.featureGroup.subGroup(markers).addTo(map);
-// var layerMetis = L.featureGroup.subGroup(markers).addTo(map);
-// var layerFriend = L.featureGroup.subGroup(markers).addTo(map);
-// var layerOttawaInuit = L.featureGroup.subGroup(markers).addTo(map);
-// var layerONWA = L.featureGroup.subGroup(markers).addTo(map);
-// var layerInuit = L.featureGroup.subGroup(markers).addTo(map);
-// var layerIndependant = L.featureGroup.subGroup(markers).addTo(map);
-
-var checkclick = false
-//******************************************************************************
-// trying to add the data as a geoJSON layer
-
-
-
-// var geo = L.geoJSON(data2).addTo(map);
-
-// var myStyle = {
-//     "color": "#42f48f",
-//     "weight": 2,
-//     "opacity": 0.65
-// };
-// //
-// L.geoJSON(data2, {
-//     style: function(feature) {
-//         var test = feature.properties.Partner
-//         console.log(test)
-//         switch (feature.properties.Partner) {
-//             case ' Anishinabek Nation/Union of Ontario Indians': return {color: "#ff0000"};
-//             case ' Association  of Iroquois and Allied Indians':   return {color: "#0000ff"};
-//             break;
-//             default: return {color: "#42f48f"};
-//         }
-//     }
-// }).addTo(map);
-// function onEachFeature(feature, layer) {
-//     // does this feature have a property named popupContent?
-//     if (feature.properties.Partner === 'Anishinabek Nation/Union of Ontario Indians') {
-//         return L.circleMarker(latlng, geojsonMarkerOptions1);
-//     } else {
-//         return L.circleMarker(latlng, geojsonMarkerOptions2);
-//     }
-// };
 
 //******************************************************************************
+/* styles for the markers*/
+var union = {
+    fillColor: 'rgb(136, 14, 79)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
 
-// {
-//     radius: 8,
-//     fillColor: "#ff7800",
-//     color: "#000",
-//     weight: 1,
-//     opacity: 1,
-//     fillOpacity: 0.8
-// };
+var allied = {
+    fillColor: 'rgb(230, 81, 0)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
 
-// var geojsonMarkerOptions2 = {
-//     radius: 8,
-//     fillColor: "#ff0000",
-//     color: "#000",
-//     weight: 1,
-//     opacity: 1,
-//     fillOpacity: 0.8
-// };
-//
-// function onEachFeature(feature, layer) {
-//     // does this feature have a property named popupContent?
-//     if (feature.properties.Name) {
-//         layer.bindPopup(feature.properties.Name);
-//     }
-// }
+var rama = {
+    fillColor: 'rgb(129, 119, 23)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
 
-// L.geoJSON(data2, {
-//     pointToLayer: function (feature, latlng) {
-//         if (feature.properties.PartnerID === 1) {
-//             return L.circleMarker(latlng, geojsonMarkerOptions2);
-//         } else {
-//             return L.circleMarker(latlng, geojsonMarkerOptions1);
-//         }
-//     },
-//     onEachFeature: onEachFeature
-// }).addTo(map);
+var treaty3 = {
+    fillColor: 'rgb(85, 139, 47)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var independant = {
+    fillColor: 'rgb(1, 87, 155)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var metis = {
+    fillColor: 'rgb(26, 35, 126)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var metis = {
+    fillColor: 'rgb(78, 52, 46)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var metis = {
+    fillColor: 'rgb(85, 139, 47)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var sauga = {
+    fillColor: 'rgb(194, 24, 21)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var mohawk = {
+    fillColor: 'rgb(255, 234, 0)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var aski = {
+    fillColor: 'rgb(175, 180, 43)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var friendship = {
+    fillColor: 'rgb(15, 157, 88)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var onwa = {
+    fillColor: 'rgb(2, 136, 209)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+
+var inuit = {
+    fillColor: 'rgb(57, 73, 171)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var six = {
+    fillColor: 'rgb(85, 139, 47)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+var tung_inuit = {
+    fillColor: 'rgb(189, 189, 189)',
+    color: '#e8eef2',
+    fillOpacity: 0.9,
+    radius: 5
+}
+
+//******************************************************************************
+var Union = L.layerGroup().addTo(map);
+var Allied = L.layerGroup().addTo(map);
+var Rama = L.layerGroup().addTo(map);
+var Treaty3 = L.layerGroup().addTo(map);
+var Independent = L.layerGroup().addTo(map);
+var Metis = L.layerGroup().addTo(map);
+var Sauga = L.layerGroup().addTo(map);
+var Mohawk = L.layerGroup().addTo(map);
+var Aski = L.layerGroup().addTo(map);
+var Friendship = L.layerGroup().addTo(map);
+var Onwa = L.layerGroup().addTo(map);
+var Inuit = L.layerGroup().addTo(map);
+var Six = L.layerGroup().addTo(map);
+var Tung_inuit = L.layerGroup().addTo(map);
+
 
 
 //******************************************************************************
 
-
-
-//******************************************************************************
-
-// var markers = L.markerClusterGroup.layerSupport().addTo(map);
-
-
-    var geojsonMarkerOptions1  = L.icon({
-        iconUrl: 'images/leaf-green.png',
-        iconSize:     [38, 95], // size of the icon
-        shadowSize:   [50, 64], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        shadowAnchor: [4, 62],  // the same for the shadow
-        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-
-    var geojsonMarkerOptions2 = L.icon({
-        iconUrl: '../images/leaf-green.png',
-        iconSize:     [38, 95], // size of the icon
-        shadowSize:   [50, 64], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        shadowAnchor: [4, 62],  // the same for the shadow
-        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
-
-
-var markers = L.markerClusterGroup();
 
 function readData(data2){
         data2.forEach(function(item){
@@ -416,31 +426,74 @@ function readData(data2){
 
 // here we load the data from the geoJSON above and add the markers
                 if (item.properties.PartnerID === 1){
-                    var marker = L.marker(new L.LatLng((item.properties.Y),(item.properties.X)),{icon: geojsonMarkerOptions1});
-                    $('#1 .sidebar-header').text(item.properties.Partner)
-                }  else {
-                    var marker = L.marker(new L.LatLng((item.properties.Y),(item.properties.X)));
-                }
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], union).addTo(map);
+                    Union.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 2) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], allied).addTo(map);
+                     Allied.addLayer(circle).addTo(map);
+                     // layerAllied = circle;
+                } else if (item.properties.PartnerID === 3) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], rama).addTo(map);
+                     Rama.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 4) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], treaty3).addTo(map);
+                     Treaty3.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 5) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], independant).addTo(map);
+                     Independent.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 6) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], metis).addTo(map);
+                     Metis.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 7) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], sauga).addTo(map);
+                     Sauga.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 8) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], mohawk).addTo(map);
+                     Mohawk.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 9) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], aski).addTo(map);
+                     Aski.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 10) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], friendship).addTo(map);
+                     Friendship.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 11) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], onwa).addTo(map);
+                     Onwa.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 12) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], inuit).addTo(map);
+                     Inuit.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 13) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], six).addTo(map);
+                     Six.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 14) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], tung_inuit).addTo(map);
+                    Tung_inuit.addLayer(circle).addTo(map);
+                } else {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X]).addTo(map);
+                };
 
-                // marker.icon = geojsonMarkerOptions1;
-            //     if(item.properties.PartnerID === 1){
-            //     marker.icon = geojsonMarkerOptions1
-            // } else {
-            //     marker.icon = geojsonMarkerOptions2
-            // }
-                markers.addLayer(marker);
+                // markers.addLayer(circle);
+//******************************************
+// if you want to use the clustered markers use
+// parent.addLayer(circle);
+
 // here we load the data for the pop up
-                 marker.bindPopup((item.properties.Name));
-                 // console.log(marker)
-// below we set the marker title to be equal to the partner name.
-                 marker.title = item.properties.PartnerID;
-                 // console.log(marker.title);
-                 marker.on('click', function () {
+                 circle.bindPopup((item.properties.Name));
+
+                 circle.on('click', function () {
+                     // console.log(marker.title)
+                     $('#data .sidebar-header').text(item.properties.Partner)
+                     $('#data .website').text(item.properties.Website)
+                     $('#data .email').text(item.properties.Email)
+                     $('#data .contact').text(item.properties.Contact)
+                     $('#data .phone').text(item.properties.Phone)
+                     $('#data .description_text').text(item.properties.Description)
                    if (checkclick === false){
-                     sidebar.open(marker.title);
+                     sidebar.open('#sidebar');
+                     $('#data').addClass('active');
                      checkclick = true;
                    }else{
-                     sidebar.close(marker.title);
+                     sidebar.close('#sidebar');
                      checkclick = false;
                    }
                  });
@@ -448,97 +501,77 @@ function readData(data2){
             })
         });
 };
-map.addLayer(markers);
-markers.addTo(map);
-//
+
+// var markers = L.markerClusterGroup();
+
+// map.addLayer(markers);
+// markers.addTo(map);
+
+
+ var communities = {
+   'Union of Ontario Indians': Union,
+   'Association of Iroquois and Allied Indians': Allied,
+   'Rama First Nation': Rama,
+   'Grand Council Treaty #3': Treaty3,
+   'Independent First Nations': Independent,
+   'Metis Nation of Ontario': Metis,
+   'Mississaugas of the New Credit First Nation': Sauga,
+   'Mohawk Council of Akwasasne': Mohawk,
+   'Nishnawbe Aski Nation': Aski,
+   'Ontario Federation of Indigenous Friendship Centres': Friendship,
+   'Ontario Native Women\'s Association': Onwa,
+   'Ottawa Inuit Children\'s Centre': Inuit,
+   'Six Nations Of the Grand River': Six,
+   'Tungasuvvingat Inuit': Tung_inuit,
+   // 'All': parent
+ };
+
+
+L.control.layers(communities).addTo(map);
+
 readData(data2);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
+//  ***************************************************************************//
 
-//
-// rez.forEach(function(location) {
-//   var marker = L.marker(new L.LatLng((location[1]), (location[2])));
-//   marker.bindPopup((location[0]));
-//   // marker.bindPopup(location.title);
-//   markers.addLayer(marker);
-//   // marker.title = location.title;
-//   marker.title = location[3];
-//   // console.log(marker.title);
-//   if (marker.title === 'Anishinabek Nation/Union of Ontario Indians'){
-//     // console.log('b');
-//     layerUNION.addLayer(marker);
-//   } else if (marker.title === 'Association of Iroquois and Allied Indians'){
-//     // console.log('c');
-//       layerIro.addLayer(marker);
-//   } else if (marker.title === 'Grand Council Treaty #3'){
-//     layerGrand.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Mohawk Council of Akwasasne'){
-//     layerMohawk.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Mississaugas of the New Credit First Nation'){
-//     layerSauga.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Nishnawbe Aski Nation'){
-//     layerAski.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Six Nations of the Grand River'){
-//     layerSix.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Metis Nation of Ontario'){
-//     layerMetis.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Ontario Federation of Indigenous Friendship Centres'){
-//     layerFriend.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Ontario Native Women\'s Association'){
-//     layerONWA.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Ottawa Inuit Children\'s Centre'){
-//     layerOttawaInuit.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Tungasuvvingat Inuit'){
-//     layerInuit.addLayer(marker);
-//     // console.log('d');
-//   } else if (marker.title === 'Independent First Nations'){
-//     layerIndependant.addLayer(marker);
-//     // console.log('d');
-//   } else {
-//     console.log('e');
-//   }
-// //
-//   marker.on('click', function () {
-//     if (checkclick === false){
-//       sidebar.open(marker.title);
-//       checkclick = true;
-//     }else{
-//       sidebar.close(marker.title);
-//       checkclick = false;
-//     }
-//   });
-// });
-//
-// var communities = {
-//   'Union of Ontario Indians': layerUNION,
-//   'Association of Iroquois and Allied Indians': layerIro,
-//   'Grand Council Treaty #3': layerGrand,
-//   'Independent First Nations': layerIndependant,
-//   'Mohawk Council of Akwasasne': layerMohawk,
-//   'Mississaugas of the New Credit First Nation': layerSauga,
-//   'Nishnawbe Aski Nation': layerAski,
-//   'Six Nations Of the Grand River': layerSix,
-//   'Metis Nation of Ontario': layerMetis,
-//   'Ottawa Inuit Children\'s Centre': layerOttawaInuit,
-//   'Tungasuvvingat Inuit': layerInuit,
-//   'Ontario Federation of Indigenous Friendship Centres': layerFriend,
-//   'Ontario Native Women\'s Association': layerONWA,
-//   // 'All': markers,
-// };
 
-// var controlSearch = new L.Control.Search({
-// position:'topright',
-// layer: layerInuit,
-// initial: false,
-// zoom: 12,
-// marker: false
-// });
+   //*****************************//
+   // add clustered markers with layer control //
+
+
+
+   // control.addOverlay(parent, 'Parent');
+   // control.addOverlay(Union, 'Union');
+   // control.addOverlay(Allied, 'Allied');
+   // control.addOverlay(Treaty3, 'Treaty3');
+   // control.addOverlay(Independent, 'Independent');
+   // control.addOverlay(Metis, 'Metis');
+   // control.addOverlay(Sauga, 'Sauga');
+   // control.addOverlay(Mohawk, 'Mohawk');
+   // control.addOverlay(Aski, 'Aski');
+   // control.addOverlay(Friendship, 'Friendship');
+   // control.addOverlay(Onwa, 'Onwa');
+   // control.addOverlay(Inuit, 'Inuit');
+   // control.addOverlay(Six, 'Six Nations');
+   // control.addOverlay(Tung_inuit, 'Tungasuvvingat Inuit ');
+
+   // var parent = L.markerClusterGroup(),
+   //  Union = L.featureGroup.subGroup(parent),
+   //  Allied = L.featureGroup.subGroup(parent),
+   //  Rama = L.featureGroup.subGroup(parent),
+   //  Treaty3 = L.featureGroup.subGroup(parent),
+   //  Independent = L.featureGroup.subGroup(parent),
+   //  Metis = L.featureGroup.subGroup(parent),
+   //  Sauga = L.featureGroup.subGroup(parent),
+   //  Mohawk = L.featureGroup.subGroup(parent),
+   //  Aski = L.featureGroup.subGroup(parent),
+   //  Friendship = L.featureGroup.subGroup(parent),
+   //  Onwa = L.featureGroup.subGroup(parent),
+   //  Inuit = L.featureGroup.subGroup(parent),
+   //  Six = L.featureGroup.subGroup(parent),
+   //  Tung_inuit = L.featureGroup.subGroup(parent),
+   //  control = L.control.layers(null, null, { collapsed: false });
+   // parent.addTo(map);
+   // control.addTo(map);
+
+   //*****************************//

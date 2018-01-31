@@ -7,16 +7,20 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+    <!-- After Leaflet and Leaflet.markercluster scripts -->
 
     <link rel="stylesheet" href="css/leaflet-sidebar.css" />
     <link rel="stylesheet" href="css/MarkerCluster.css" />
     <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="css/leaflet-search.src.css" />
+    <link rel="stylesheet" href="css/leaflet-search.min.css" />
+    <link rel="stylesheet" href="css/L.Control.HtmlLegend.css" />
     <link rel="stylesheet" href="css/map.css" />
 
     <script src="js/jquery-3.2.1.min.js" async></script>
     <script src="js/Jquery.js" async></script>
-    <script src="js/data.js" async></script>
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+
 
     <!-- <script type="text/javascript" src="path/to/script1.js" async></script> -->
 
@@ -30,520 +34,75 @@
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <!-- <li><a href="#Union of Ontario Indians" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#Association of Iroquois and Allied Indians" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#Grand Council Treaty #3" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#Independent First Nations" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#Mohawk Council of Akwasasne" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#Nishnawbe Aski Nation" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li> -->
 
                 <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
             </ul>
 
             <ul role="tablist">
-                <!-- <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li> -->
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
             </ul>
         </div>
 
         <!-- Tab panes -->
-                          <div class="sidebar-content">
-                        <div class="sidebar-pane" id="home">
-                            <h1 class="sidebar-header">
-                                      First Nation Service Map
-                                    </h1>
-                            <h3>This is the title page for your map.  Please add some content for this area..</h3>
-                            <p class="lorem">The program focuses on Anishnaabek families, children and youth</p>
-                            <h4>Local activities include:
-                            </h4>
-                            <ul>
-                                <li>
-                                    Traditional Ceremonies (Sweat Lodge, Full Moon, etc.)
-                                </li>
-                                <li>
-                                    Traditional Teachings (Creation Story, maple syrup season at elementary school, etc.)
-                                </li>
-                                <li>
-                                    Traditional Socials, Spring Fasting Camp
-                                </li>
-                                <li>
-                                    Ojibway language immersion
-                                </li>
-                                <li>
-                                    Family Wellness Plans
-                                </li>
-                                <li>
-                                    Resource Library
-                                </li>
-                            </ul>
-                        </div>
-
-                            <div class="sidebar-pane" id="1">
-                                
-                        <h1 class="sidebar-header">
-                                      Union of Ontario Indians
-                                        <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                                    </h1>
-
-                        <p class="lorem">Ambe Minobmaadzidda Program will promote and provide opportunities to engage in cultural teachings and ceremonies. The Turtle Medicine Wheel, designed specifically for this program, will be used as a cultural guide and teaching tool to learn to live
-                            in balance while building, maintaining and strengthening healthy relationships.</p>
-                        <p class="lorem">The program focuses on Anishnaabek families, children and youth</p>
-                        <h5>Local activities include:
-                                    </h5>
-                        <ul>
-                            <li>
-                                Traditional Ceremonies (Sweat Lodge, Full Moon, etc.)
-                            </li>
-                            <li>
-                                Traditional Teachings (Creation Story, maple syrup season at elementary school, etc.)
-                            </li>
-                            <li>
-                                Traditional Socials, Spring Fasting Camp
-                            </li>
-                            <li>
-                                Ojibway language immersion
-                            </li>
-                            <li>
-                                Family Wellness Plans
-                            </li>
-                            <li>
-                                Resource Library
-                            </li>
-                        </ul>
-                    </div>
-
-            <div class="sidebar-pane" id="Association of Iroquois and Allied Indians">
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
                 <h1 class="sidebar-header">
-                    Association of Iroquois and Allied Indians
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <p class="lorem">AIAI's Family Well-Being program is focused on building on community strengths and external partnerships to design and deliver programs that support families and communities as a whole. </p>
-                <h5>Local program plans are in development around general themes of creating programs and services that include:
-                            </h5>
+                                              First Nation Service Map
+                                            </h1>
+                <h3>This is the title page for your map.  Please add some content for this area..</h3>
+                <p class="lorem">The program focuses on Anishnaabek families, children and youth</p>
+                <h4>Local activities include:
+                                    </h4>
                 <ul>
                     <li>
-                      Traditional healing;
+                        Traditional Ceremonies (Sweat Lodge, Full Moon, etc.)
                     </li>
                     <li>
-                      Culture and language;
+                        Traditional Teachings (Creation Story, maple syrup season at elementary school, etc.)
                     </li>
                     <li>
-                      Creating and improving local networks;
+                        Traditional Socials, Spring Fasting Camp
                     </li>
                     <li>
-                      Increasing programming and services for Children & Youth;
+                        Ojibway language immersion
                     </li>
                     <li>
-                      Increasing Child Welfare supports;
+                        Family Wellness Plans
                     </li>
                     <li>
-                        Capital and infrastructure.
+                        Resource Library
                     </li>
                 </ul>
             </div>
 
-            <div class="sidebar-pane" id="Grand Council Treaty #3">
-                <h1 class="sidebar-header">
-                Grand Council Treaty #3
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <p class="lorem">Four regional lead agencies engaged and consulted with their communities to develop local program models that were based on 7 overarching themes that were identified:</p>
-                <ul>
-                    <li>
-                      	Community Resource Coordination
-                    </li>
-                    <li>
-                      Family Preservation
-                    </li>
-                    <li>
-                      System navigation
-                    </li>
-                    <li>
-                      Prevention activities
-                    </li>
-                    <li>
-                      Cultural and traditional programming
-                    </li>
-                    <li>
-                      Family supports
-                    </li>
-                    <li>
-                        Networking
-                    </li>
-                  </ul>
-                    <h4>The shared program objectives include: </h4>
-                    <ul>
-                      <li>
-                        Family Well Being workers to connect clients to existing services and programs in their community, and provide culturally based, preventative and holistic family supports.
-                      </li>
-                      <li>
-                        Establish community based programming for individuals and families (e.g. culture-based groups, workshops, family circles, life skills supports, peer support groups)
-                      </li>
-                      <li>
-                        Establish a safe place to address crisis/emergency situations for children, youth and families
-                      </li>
-                      <li>
-                        Establish ongoing training and professional development for the Family Well Being workers
-                      </li>
-                    </ul>
-                    <h4>Activities and programming are diverse, and can include:</h4>
-                    <ul>
-                      <li>
-                        Family Support/Mentoring and Skill Development (E.g. weekly sharing circles)
-                      </li>
-                      <li>
-                        Intergenerational group support and recreational activities;
-                      </li>  <li>
-                        Advocacy and linking with program resources;
-                        </li>
-                         <li>
-                           Clinical and cultural counselling;
-                          </li>
-                          <li>
-                            Planning for children, youth and families transitioning in or out of services
-                            </li>
-                            <li>
-                              Cultural, language and traditional land based activities
-                              </li>
-                              <li>
-                                Supporting Traditional roles and responsibilities: strong involvement of community elders in teachings and supporting families
-                                </li>
-                                <li>
-                                  Men's programming
-                                </li>
-                                <li>
-                                  Awareness and promotion of community understanding of forms of violence and safety planning to lead to community decrease of forms of violence
-                                </li>
-                    </ul>
-                </ul>
+<div class="sidebar-pane" id="data">
+    <h3 class="sidebar-header"> text <span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h3>
+    <div class='sidebar-box'>
+        <div class='partnerimage'>
+
+        </div>
+        <div class="contactbox">
+            <div class="contactinfo1">
+                <p class="lorem">Website</p>
+                <p class="lorem website">text</p>
+                <p class="lorem">Email</p>
+                 <p class="lorem email">text </p>
+                <p class="lorem">Phone</p>
+                <p class="lorem phone">text</p>
+                <p class="lorem">Contact</p>
+                <p class="lorem contact">text</p>
             </div>
+        </div>
 
+        <div class="contactbox">
+        </div>
 
-            <div class="sidebar-pane" id="Independent First Nations">
-                <h1 class="sidebar-header">
-                    Independent First Nations
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Ending Violence Against Indigenous Women (EVAIW) Family Well-Being Program
-                </h2>
-                  <p class="lorem">
-                    The EVAIW FWB Program takes a wholistic, family focused approach. IFN will coordinate and will support First Nation communities in program delivery.The client group for the FWB worker is identified by each IFN Community, however may include the whole family and specific family members and groups (women, men, Elders, youth).
-                    </p>
-                    <h3>
-                      Each local program will:
-                    </h3>
-                    <ul>
-                      <li>
-                        Provide supports, services and healing for the whole family and specific groups (women, men, Elders, youth).
-                      </li>
-                      <li>
-                        Provide land-based and culturally-based programming.
-                      </li>
-                      <li>
-                        Offer workshops and education in the community about the causes of violence and how to live in a healthy way.
-                      </li>
-                      <li>
-                        Offer case management for complex cases.
-                      </li>
-                      <li>
-                        Provide wrap-around services for families.
-                      </li>
-                    </ul>
-                </div>
-
-            <div class="sidebar-pane" id="Mohawk Council of Akwasasne">
-                <h1 class="sidebar-header">
-                    Mohawk Council of Akwasasne
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Akwesasne Family Wellness / Well-being Program
-                </h2>
-                <p class="lorem">The focus of the program is to use a therapeutic educational model that is inclusive of cultural teachings and counseling modalities to create safe and therapeutic environments, and wrap-around services for women, children and men, to promote family well-being and growth.</p>
-                <h4>The program client focus is on women, men and children/youth.
-                </h4>
-                            <h4>The program seeks to do this by addressing family violence through:
-                            </h4>
-                <ul>
-                    <li>
-                      Providing safe housing options for women and children, men and families in separate housing units;
-                    </li>
-                    <li>
-                      Educational and counseling opportunities in partnership to focus on prevention, safety planning and counseling;
-                    </li>
-                    <li>
-                      And flexible service delivery with access to after-hours supports, and mobile service delivery to reduce accessibility barriers due to lack of transportation and poverty.
-                    </li>
-                </ul>
-            </div>
-
-
-
-            <div class="sidebar-pane" id="Nishnawbe Aski Nation">
-                <h1 class="sidebar-header">
-                  Nishnawbe Aski Nation
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>NAN Family Well-Being program
-                </h2>
-                <p class="lorem">The NAN FWBp will contribute to the vision of happy, healthy, children and families in NAN communities where women and girls are safe, protected and respected. Further, the FWBp will support families to build healthy bonds, connections and relationships by empowering them and activating their voices through wholistic and culturally appropriate healing processes.
-                </p>
-                <h4>NAN's program coordination role includes:
-                </h4>
-                <ul>
-                    <li>
-                      Administering the program funding flow through of funds;
-                    </li>
-                    <li>
-                      Establishing a FWB p Coordination Team to provide guidance, coordination;
-                    </li>
-                    <li>
-                      Assisting with evaluation and data collection and evaluation, including the design of a unique evaluation and data collection system;
-                    </li>
-                    <li>
-                      Supporting training and community capacity development through toolkits and training modules.
-                    </li>
-                </ul>
-                <h4>All NAN First Nations will deliver the Family Well-Being Program and will design and build the program according to the community's needs and priorities, with guidance from NAN staff
-                </h4>
-                <ul>
-                    <li>
-                      	Family Well-Being Workers will deliver the FWBp under the direction of community-level Health Directors (or other, as determined by First Nation) and will work in collaboration with other community-based programs.
-                    </li>
-                </ul>
-            </div>
-
-
-
-            <div class="sidebar-pane" id='Six Nations of the Grand River'>
-                <h1 class="sidebar-header">
-                  Six Nations Of the Grand River
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>TBC
-                </h2>
-                <p class="lorem">The Six Nations FWBp will reflect a holistic Haudenosaunee way, culture and practices:
-                </p>
-                <h4>Activities include:
-                </h4>
-                <ul>
-                    <li>
-                      Focus on prevention, family healing and wellness with the goal of reducing the incidence of children/youth entering the child welfare system, youth justice system and reducing family violence.
-                    </li>
-                    <li>
-                      Build on existing community resources and programs to maximize existing resources and FWBp resources
-                    </li>
-                    <li>
-                      Develop a balance of mind, body, spirit and emotion
-                    </li>
-                    <li>
-                      Develop a “good mind” by demonstrating honesty, truth and integrity
-                    </li>
-                    <li>
-                      Develop an understanding of how current behaviours impact the generations to come (Seven Generations)
-                    </li>
-                </ul>
-                <p class="lorem">The program will be available to all community members - children, youth, families and Elders - in the six Haudenosaunee Nations: Mohawk, Cayuga, Oneida, Seneca, Onondaga and Tuscarora (Delaware and those from other Nations visiting our community.
-                </p>
-                <h4>The FWBp will facilitate the expansion of local programs and services, including:
-                </h4>
-                <ul>
-                    <li>
-                      Family Support Unit Teacher/Homemaker program
-                    </li>
-                    <li>
-                      Tsi Tionkwatention A'no:wara Rason:ne (My Home on Turtle Island) Youth Lodge
-                    </li>
-                    <li>
-                      Six Nations Social Services & Child and Family Services Youth Drop-in Program
-                    </li>
-                    <li>
-                      Family/Youth Education Worker & Life Skills Coach for Youth Lodge and Six Nation Social Services, Child and Family Services
-                    </li>
-                    <li>
-                      Safe Place Program  Temporary Housing Support for a family "at risk" of involvement with Child Protection services, youth justice or family violence.
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="sidebar-pane" id="Metis Nation of Ontario">
-                <h1 class="sidebar-header">
-                  Metis Nation of Ontario
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Metis Family Well-Being Program
-                </h2>
-                <p class="lorem">
-                </p>
-                <h4>Activities include:
-                </h4>
-                <ul>
-                    <li>
-                      Cultural: Programs focused on outreach and cultural awareness training to the broad service sector to ensure cultural supports for Metis citizens and increased opportunities for youth leadership.
-                    </li>
-                    <li>
-                      Well-Being: Direct services to Metis children, youth, families that are holistic and culturally reflective (E.g. wellness planning, advocacy, referrals, education events)
-                    </li>
-                </ul>
-                <h4>The Metis FWBP will focus on Metis children, youth and their families, as well as outreach and education to mainstream service providers.
-                </h4>
-                <ul>
-                    <li>
-                      	Activities will cover a range that will target prevention through life skill development, involvement in culturally specific crafts, music, dancing, connecting with Elders and building healthy relationships. Client centered work will focus on advocacy, education and assisting with system navigation.
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-pane" id="Ottawa Inuit Children's Centre">
-                <h1 class="sidebar-header">
-                  Ottawa Inuit Children's Centre
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Family Well-Being program
-                </h2>
-                <p class="lorem">The FWBp  supports the well-being and capacity-building of the Inuit community. OICC’s Family Well Being program builds on the strengths of the child and their family and provides supports tailored to the unique needs of each family. The programs’ emphasis is on prevention and cultural acquisition.
-                </p>
-                <h4>The program focus is Inuit families, including women, men, adoptive parents, children and youth in the Ottawa area.
-                </h4>
-                <h4>The Family Well-Being Program model has five components:
-                </h4>
-                <ul>
-                    <li>
-                      Family Intake Coordination and parent outreach.
-                    </li>
-                    <li>
-                      Cultural Programming (e.g. Land-based family camp, Innunguiniq Parenting program, Elder Advisors).
-                    </li>
-                    <li>
-                      Safe Spaces (e.g. Family drop-in, Youth drop-in, Women's Circle, Mens Group)
-                    </li>
-                    <li>
-                      Individual Support & Crisis management (e.g. After hours crisis support, Case management, Accompaniment, resource supports (e.g. emergency food cards, transportation support)
-                    </li>
-                    <li>
-                      Capacity Building (e.g. building cultural competency capacity at other Inuit serving agencies in Ottawa).
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-pane" id="Tungasuvvingat Inuit">
-                <h1 class="sidebar-header">
-                  Tungasuvvingat Inuit
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>
-                  Children, Youth and Family Centre for Inuit - Supporting Inuit Children and Families
-                </h2>
-                <p class="lorem">Grounded in Inuit culture and traditions, TI's program seeks to facilitate opportunities for Inuit youth to be living Inummariq, facilitate early intervention and reduce the harmful effects of violence on Inuit families by making community supports available for families in crisis. The program will focus on Inuit children, youth, women and their families in the Ottawa and Toronto regions.
-                </p>
-                <h4>Activities include:
-                </h4>
-                <ul>
-                    <li>
-                      Connecting clients to existing services and programs in their geographic community.
-                    </li>
-                    <li>
-                      Developing culturally-based, preventative and holistic supports to be distributed and adopted by partners and stakeholders across Ontario.
-                    </li>
-                    <li>
-                      Coordinating family wellness planning.
-                    </li>
-                    <li>
-                      Providing counselling services and programs to families, children and youth who are at risk or have been exposed to and/or have experienced violence.
-                    </li>
-                    <li>
-                      Providing opportunities for urban Inuit to connect to their culture and their families through art, gatherings, dance, time on the land, outings and music.
-                    </li>
-                    <li>
-                      Programming that facilitates a safe space for Inuit to express themselves in their language of choice, either directly or with the support of an interpreter.
-                    </li>
-                    <li>
-                      Access to the Family Well Being Centre for families involved with CAS to facilitate a welcoming space for families to visit and work toward restoring the family unit.
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="sidebar-pane" id="Ontario Native Women's Association">
-                <h1 class="sidebar-header">
-                  Ontario Native Women's Association
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Circles of Care program
-                </h2>
-                <p class="lorem">The Circles of Care Program focuses on Indigenous women and their children who are involved with the child welfare system and violence against women sector, their families, and communities.
-                  The program is designed to support clients who arrive at the door "in crisis" by first stabilizing their current situation, and then building the support systems that are needed to move and stay away from crisis situations.</p>
-                <h4>Activities include:
-                </h4>
-                <ul>
-                    <li>
-                      Working closely with clients to provide a circle of care that responds to the cultural, mental, physical, emotional and spiritual needs of the woman through close collaboration with Indigenous and non-Indigenous services in the community.
-                    </li>
-                    <li>
-                      Providing direct services (crisis management, traditional supports, systems navigation) and advocacy support.
-                    </li>
-                    <li>
-                      Partnerships with other service providers across sectors to create culturally safe systems for Indigenous women and families to support their well-being.
-                      </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-pane" id="Mississaugas of the New Credit First Nation">
-                <h1 class="sidebar-header">
-                  Mississaugas of the New Credit First Nation
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Akwesasne Family Wellness / Well-being Program
-                </h2>
-                <p class="lorem">The Maamwi Gnawending Program will provide prevention-focused services to families who are at risk of becoming involved with Child and Family Services and women who have been exposed to, or are at risk of being exposed to, intimate partner violence and children in care.
-                </p>
-                <p class="lorem">Clients will be able to utilize cultural practices (e.g. smudging before/during/after counselling session) and have access to both Western and culturally-based materials and resources. Programs offered will be from both traditional and western perspectives, and facilitated by culturally sensitive staff members.
-                </p>
-                <h4>Activities include:
-                </h4>
-                <ul>
-                    <li>
-                      Supportive counselling: staff will provide a confidential and safe space for clients to share their concerns, experiences. This support will be provided either in-person in the office, or via email or telephone (voice or text). Staff will also offer recommendations of additional/follow up services if required by the client.
-                    </li>
-                    <li>
-                      Family oriented programming geared toward healthy parent/child relationships and parenting workshops
-                    </li>
-                    <li>
-                      Childcare for participants in program events
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-pane" id="Mississaugas of the New Credit First Nation">
-                <h1 class="sidebar-header">
-                  Mississaugas of the New Credit First Nation
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-                <h2>Akwesasne Family Wellness / Well-being Program
-                </h2>
-                <p class="lorem">The Maamwi Gnawending Program will provide prevention-focused services to families who are at risk of becoming involved with Child and Family Services and women who have been exposed to, or are at risk of being exposed to, intimate partner violence and children in care.
-                </p>
-                <p class="lorem">Clients will be able to utilize cultural practices (e.g. smudging before/during/after counselling session) and have access to both Western and culturally-based materials and resources. Programs offered will be from both traditional and western perspectives, and facilitated by culturally sensitive staff members.
-                </p>
-                <h4>Activities include:
-                </h4>
-                <ul>
-                    <li>
-                      Supportive counselling: staff will provide a confidential and safe space for clients to share their concerns, experiences. This support will be provided either in-person in the office, or via email or telephone (voice or text). Staff will also offer recommendations of additional/follow up services if required by the client.
-                    </li>
-                    <li>
-                      Family oriented programming geared toward healthy parent/child relationships and parenting workshops
-                    </li>
-                    <li>
-                      Childcare for participants in program events
-                    </li>
-                </ul>
-            </div>
-
+        <div class="description">
+            <p class="lorem"> Description</p>
+            <p class="lorem description_text"> AIAI's Family Well-Being program is focused on building on community strengths and external partnerships to design and deliver programs that support families and communities as a whole. </p>
+        </div>
+    </div>
+</div>
 
 
 
@@ -598,7 +157,8 @@
   <script src="js/leaflet-sidebar.js" async></script>
   <script src="js/leaflet.markercluster.js" async></script>
   <script src="js/leaflet.featuregroup.subgroup.js" async></script>
-  <script src="js/leaflet-search.src.js" async></script>
+  <script src="js/leaflet-search.min.js" async></script>
+  <script src="js/L.Control.HtmlLegend.js"></script>
   <script src="js/data.js" async></script>
   <script src="js/map.js" async></script>
 
