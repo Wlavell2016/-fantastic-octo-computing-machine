@@ -1,40 +1,28 @@
-var mcg = L.markerClusterGroup(),
-		group1 = L.featureGroup.subGroup(mcg),// use `L.featureGroup.subGroup(parentGroup)` instead of `L.featureGroup()` or `L.layerGroup()`!
-		group2 = L.featureGroup.subGroup(mcg),
-		group3 = L.featureGroup.subGroup(mcg),
-		group4 = L.featureGroup.subGroup(mcg),
-		control = L.control.layers(null, null, { collapsed: false }),
-		i, a, title, marker;
+var parent = L.featureGroup(),
+	groupA = L.featureGroup.subGroup(parent),// use `L.featureGroup.subGroup(parentGroup)` instead of `L.featureGroup()` or `L.layerGroup()`!
+	groupB = L.featureGroup.subGroup(parent),
+	groupC = L.featureGroup.subGroup(parent),
+	groupD = L.featureGroup.subGroup(parent),
+	control = L.control.layers(null, null, { collapsed: false });
 
-	mcg.addTo(map);
+// Trick to force order of listing in L.Control.Layers.
+// See https://stackoverflow.com/questions/33655746/leaflet-how-to-specifiy-order-of-overlays-in-the-layers-control
+L.stamp(parent);
+L.stamp(groupA);
+L.stamp(groupB);
+L.stamp(groupC);
+L.stamp(groupD);
 
-	for (i = 0; i < fullCount; i++) {
-		a = addressPoints[i];
-		title = a[2];
-		marker = L.marker([a[0], a[1]], { title: title });
-		marker.bindPopup(title);
+parent.addTo(map);
 
-		marker.addTo(i < quarterCount ? group1 : i < quarterCount * 2 ? group2 : i < quarterCount * 3 ? group3 : group4);
-	}
+var marker = L.marker([-37.8, 175.2]).addTo(groupA).bindPopup("Marker at [-37.8, 175.2] in group A");
+L.marker([-37.8, 175.3]).addTo(groupB).bindPopup("Marker at [-37.8, 175.3] in group B");
+L.marker([-37.9, 175.2]).addTo(groupC).bindPopup("Marker at [-37.9, 175.2] in group C");
+L.marker([-37.9, 175.3]).addTo(groupD).bindPopup("Marker at [-37.9, 175.3] in group D");
 
-	control.addOverlay(group1, 'First quarter');
-	control.addOverlay(group2, 'Second quarter');
-	control.addOverlay(group3, 'Third quarter');
-	control.addOverlay(group4, 'Fourth quarter');
-	control.addTo(map);
-
-	group1.addTo(map); // Adding to map now adds all child layers into the parent group.
-	group2.addTo(map);
-	group3.addTo(map);
-	group4.addTo(map);
-
-
-	// Set-up buttons.
-
-	document.getElementById("add").addEventListener("click", function () {
-		map.addLayer(mcg);
-	});
-
-	document.getElementById("remove").addEventListener("click", function () {
-		map.removeLayer(mcg);
-	});
+control.addOverlay(parent, 'Parent');
+control.addOverlay(groupA, 'Child A');
+control.addOverlay(groupB, 'Child B');
+control.addOverlay(groupC, 'Child C');
+control.addOverlay(groupD, 'Child D');
+control.addTo(map);

@@ -1,4 +1,4 @@
-data2 =
+data2 = [
     {
     "type": "FeatureCollection",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
@@ -253,7 +253,8 @@ data2 =
     { "type": "Feature", "properties": { "X": -80.273569, "Y": 45.513692, "Name": "Shawanaga First Nation", "Partner": " Independent First Nations", "PartnerID": 5, "Website": " http:\/\/shawanagafirstnation.ca\/", "Postal_Code": null, "Contact": " Ending Violence Against Indigenous Women-Family Well-Being Program and Policy Advis", "Email": null, "Phone": null, "Description": "The Ending Violence Against Indigenous Women Family Well-Being Program takes a holistic, family focused approach. IFN will coordinate and will support First Nation communities in program delivery. The client group for the Family Well-Being Worker is identified by each IFN Community, however this may include the whole family or specific family members and groups. Each local program will: provide supports, services and healing for the whole family and specific groups; provide land-based and culturally-based programming; offer workshops and education in the community about the causes of violence and how to live in a healthy way; offer case management for complex cases; and provide wrap-around services for families.", "LAT": 45.513692, "LON": -80.273569 }, "geometry": { "type": "Point", "coordinates": [ -80.273569, 45.513692 ] } },
     { "type": "Feature", "properties": { "X": -87.6702166, "Y": 49.5046032, "Name": "Whitesand First Nation", "Partner": " Independent First Nations", "PartnerID": 5, "Website": " http:\/\/www.whitesandfirstnation.com", "Postal_Code": " P0T 1A0", "Contact": " Ending Violence Against Indigenous Women-Family Well-Being Program and Policy Advisor��_��__", "Email": null, "Phone": null, "Description": "The Ending Violence Against Indigenous Women Family Well-Being Program takes a holistic, family focused approach. IFN will coordinate and will support First Nation communities in program delivery. The client group for the Family Well-Being Worker is identified by each IFN Community, however this may include the whole family or specific family members and groups. Each local program will: provide supports, services and healing for the whole family and specific groups; provide land-based and culturally-based programming; offer workshops and education in the community about the causes of violence and how to live in a healthy way; offer case management for complex cases; and provide wrap-around services for families.", "LAT": 49.5046032, "LON": -87.6702166 }, "geometry": { "type": "Point", "coordinates": [ -87.6702166, 49.5046032 ] } }
     ]
-    };
+    }
+];
 
 
 
@@ -417,139 +418,95 @@ var Tung_inuit = L.layerGroup().addTo(map);
 
 //******************************************************************************
 
-// L.geoJson(data2, {
-//     pointToLayer: function (feature, latlng) {
-//         return L.circleMarker(latlng, union);
-//
-//     },
-//     onEachFeature: onEachFeature
-// }).addTo(map);
-//
-//
-// function onEachFeature(feature, layer, latlng) {
-//
-//     feature.layer = layer;
-//     layer.bindPopup(feature.properties.Name);
-//     // console.log(layer)
-//     // console.log('test')
-// };
 
+function readData(data2){
+        data2.forEach(function(item){
+            var features = item.features
+            features.forEach(function(item){
 
-
-
-
-//
-var fwblayer = L.geoJSON(data2, {
-    pointToLayer: function(feature, latlng) {
-        // return L.circleMarker(latlng, union);
-
-        if (feature.properties.PartnerID === 1) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], union).addTo(map);
-            Union.addLayer(circle).addTo(map);
-
-        } else if (feature.properties.PartnerID === 2) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X],{title: feature.properties.Name},  allied).addTo(map);
-            Allied.addLayer(circle).addTo(map);
-
-
-        } else if (feature.properties.PartnerID === 3) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], rama).addTo(map);
-            Rama.addLayer(circle).addTo(map);
-            // feature.layer = Rama;
-
-        } else if (feature.properties.PartnerID === 4) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], treaty3).addTo(map);
-            Treaty3.addLayer(circle).addTo(map);
-            // feature.layer = Treaty3;
-        } else if (feature.properties.PartnerID === 5) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], independant).addTo(map);
-            Independent.addLayer(circle).addTo(map);
-            // feature.layer = Independent;
-
-        } else if (feature.properties.PartnerID === 6) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], metis).addTo(map);
-            Metis.addLayer(circle).addTo(map);
-            // feature.layer = Metis;
-
-        } else if (feature.properties.PartnerID === 7) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], sauga).addTo(map);
-            Sauga.addLayer(circle).addTo(map);
-            // feature.layer = Sauga;
-
-        } else if (feature.properties.PartnerID === 8) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], mohawk).addTo(map);
-            Mohawk.addLayer(circle).addTo(map);
-            // feature.layer = Mohawk;
-
-        } else if (feature.properties.PartnerID === 9) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], aski).addTo(map);
-            Aski.addLayer(circle).addTo(map);
-            // feature.layer = Aski;
-
-        } else if (feature.properties.PartnerID === 10) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], friendship).addTo(map);
-            Friendship.addLayer(circle).addTo(map);
-            // feature.layer = Friendship;
-
-        } else if (feature.properties.PartnerID === 11) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], onwa).addTo(map);
-            Onwa.addLayer(circle).addTo(map);
-            // feature.layer = Onwa;
-
-        } else if (feature.properties.PartnerID === 12) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], inuit).addTo(map);
-            Inuit.addLayer(circle).addTo(map);
-            // feature.layer = Inuit;
-
-        } else if (feature.properties.PartnerID === 13) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], six).addTo(map);
-            Six.addLayer(circle).addTo(map);
-            // feature.layer = Six;
-
-        } else if (feature.properties.PartnerID === 14) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], tung_inuit).addTo(map);
-            Tung_inuit.addLayer(circle).addTo(map);
-            // feature.layer = Tung_inuit;
-
-        } else {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X]).addTo(map);
-        }
-            circle.on('click', function() {
-                // console.log(marker.title)
-                $('#data .sidebar-header').text(feature.properties.Partner)
-                $('#data .website').text(feature.properties.Website)
-                $('#data .email').text(feature.properties.Email)
-                $('#data .contact').text(feature.properties.Contact)
-                $('#data .phone').text(feature.properties.Phone)
-                $('#data .description_text').text(feature.properties.Description)
-                if (checkclick === false) {
-                    sidebar.open('#sidebar');
-                    $('#data').addClass('active');
-                    checkclick = true;
+// here we load the data from the geoJSON above and add the markers
+                if (item.properties.PartnerID === 1){
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], union).addTo(map);
+                    Union.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 2) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], allied).addTo(map);
+                     Allied.addLayer(circle).addTo(map);
+                     // layerAllied = circle;
+                } else if (item.properties.PartnerID === 3) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], rama).addTo(map);
+                     Rama.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 4) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], treaty3).addTo(map);
+                     Treaty3.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 5) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], independant).addTo(map);
+                     Independent.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 6) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], metis).addTo(map);
+                     Metis.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 7) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], sauga).addTo(map);
+                     Sauga.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 8) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], mohawk).addTo(map);
+                     Mohawk.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 9) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], aski).addTo(map);
+                     Aski.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 10) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], friendship).addTo(map);
+                     Friendship.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 11) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], onwa).addTo(map);
+                     Onwa.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 12) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], inuit).addTo(map);
+                     Inuit.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 13) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], six).addTo(map);
+                     Six.addLayer(circle).addTo(map);
+                } else if (item.properties.PartnerID === 14) {
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X], tung_inuit).addTo(map);
+                    Tung_inuit.addLayer(circle).addTo(map);
                 } else {
-                    sidebar.close('#sidebar');
-                    checkclick = false;
-                }
+                    var circle = L.circleMarker([item.properties.Y, item.properties.X]).addTo(map);
+                };
+
+                // markers.addLayer(circle);
+//******************************************
+// if you want to use the clustered markers use
+// parent.addLayer(circle);
+
+// here we load the data for the pop up
+                 circle.bindPopup((item.properties.Name));
+
+                 circle.on('click', function () {
+                     // console.log(marker.title)
+                     $('#data .sidebar-header').text(item.properties.Partner)
+                     $('#data .website').text(item.properties.Website)
+                     $('#data .email').text(item.properties.Email)
+                     $('#data .contact').text(item.properties.Contact)
+                     $('#data .phone').text(item.properties.Phone)
+                     $('#data .description_text').text(item.properties.Description)
+                   if (checkclick === false){
+                     sidebar.open('#sidebar');
+                     $('#data').addClass('active');
+                     checkclick = true;
+                   }else{
+                     sidebar.close('#sidebar');
+                     checkclick = false;
+                   }
+                 });
+
             })
-            circle.bindPopup();
-        },
-            // onEachFeature: onEachFeature
-})
-map.addLayer(fwblayer);
+        });
+};
 
-var controlSearch = new L.Control.Search({
-    position:'topright',
-    layer: Allied,
-    initial: false,
-    zoom: 12,
-    marker: false
-});
+// var markers = L.markerClusterGroup();
 
-map.addControl( controlSearch );
+// map.addLayer(markers);
+// markers.addTo(map);
 
-    //     marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
-    // marker.bindPopup('title: '+ title );
-    // markersLayer.addLayer(circle);
 
  var communities = {
    'Union of Ontario Indians': Union,
@@ -572,7 +529,7 @@ map.addControl( controlSearch );
 
 L.control.layers(communities).addTo(map);
 
-// readData(data2);
+readData(data2);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 //  ***************************************************************************//
