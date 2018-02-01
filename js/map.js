@@ -531,7 +531,7 @@ var fwblayer = L.geoJSON(data2, {
                     checkclick = false;
                 }
             })
-            circle.bindPopup();
+            circle.bindPopup(feature.properties.Name);
         },
             // onEachFeature: onEachFeature
 })
