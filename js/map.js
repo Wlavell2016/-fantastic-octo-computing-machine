@@ -291,6 +291,12 @@ var union = {
     radius: 5
 }
 
+
+
+
+//     var circle = L.circleMarker(latlng,  allied);
+
+
 var allied = {
     fillColor: 'rgb(230, 81, 0)',
     color: '#e8eef2',
@@ -399,6 +405,8 @@ var tung_inuit = {
 
 //******************************************************************************
 var Union = L.layerGroup().addTo(map);
+var Union2 = L.layerGroup().addTo(map);
+
 var Allied = L.layerGroup().addTo(map);
 var Rama = L.layerGroup().addTo(map);
 var Treaty3 = L.layerGroup().addTo(map);
@@ -416,136 +424,33 @@ var Tung_inuit = L.layerGroup().addTo(map);
 
 
 //******************************************************************************
-
-// L.geoJson(data2, {
-//     pointToLayer: function (feature, latlng) {
-//         return L.circleMarker(latlng, union);
+// function onEachFeature(feature, layer) {
+//     // does this feature have a property named popupContent?
+//     if (feature.properties.partnerID === 1) {
+//         feature.properties.color = '#4286f4'
+//         console.log('test')
+//     }else {
+//         feature.properties.color = '#4286f4'
+//         layer.bindPopup(feature.properties.Name);
+//     }
+// }
 //
+// var fwblayer = L.geoJSON(data2, {
+//     pointToLayer: function (feature, latlng) {
+//         return L.circleMarker(latlng);
 //     },
 //     onEachFeature: onEachFeature
-// }).addTo(map);
+//     style: function(feature) {
+//         return {color: feature.properties.color };
+//     },
+// });
 //
-//
-// function onEachFeature(feature, layer, latlng) {
-//
-//     feature.layer = layer;
-//     layer.bindPopup(feature.properties.Name);
-//     // console.log(layer)
-//     // console.log('test')
-// };
+// map.addLayer(fwblayer);
 
 
 
 
 
-//
-var fwblayer = L.geoJSON(data2, {
-    pointToLayer: function(feature, latlng) {
-        // return L.circleMarker(latlng, union);
-
-        if (feature.properties.PartnerID === 1) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], union).addTo(map);
-            Union.addLayer(circle).addTo(map);
-
-        } else if (feature.properties.PartnerID === 2) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X],{title: feature.properties.Name},  allied).addTo(map);
-            Allied.addLayer(circle).addTo(map);
-
-
-        } else if (feature.properties.PartnerID === 3) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], rama).addTo(map);
-            Rama.addLayer(circle).addTo(map);
-            // feature.layer = Rama;
-
-        } else if (feature.properties.PartnerID === 4) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], treaty3).addTo(map);
-            Treaty3.addLayer(circle).addTo(map);
-            // feature.layer = Treaty3;
-        } else if (feature.properties.PartnerID === 5) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], independant).addTo(map);
-            Independent.addLayer(circle).addTo(map);
-            // feature.layer = Independent;
-
-        } else if (feature.properties.PartnerID === 6) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], metis).addTo(map);
-            Metis.addLayer(circle).addTo(map);
-            // feature.layer = Metis;
-
-        } else if (feature.properties.PartnerID === 7) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], sauga).addTo(map);
-            Sauga.addLayer(circle).addTo(map);
-            // feature.layer = Sauga;
-
-        } else if (feature.properties.PartnerID === 8) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], mohawk).addTo(map);
-            Mohawk.addLayer(circle).addTo(map);
-            // feature.layer = Mohawk;
-
-        } else if (feature.properties.PartnerID === 9) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], aski).addTo(map);
-            Aski.addLayer(circle).addTo(map);
-            // feature.layer = Aski;
-
-        } else if (feature.properties.PartnerID === 10) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], friendship).addTo(map);
-            Friendship.addLayer(circle).addTo(map);
-            // feature.layer = Friendship;
-
-        } else if (feature.properties.PartnerID === 11) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], onwa).addTo(map);
-            Onwa.addLayer(circle).addTo(map);
-            // feature.layer = Onwa;
-
-        } else if (feature.properties.PartnerID === 12) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], inuit).addTo(map);
-            Inuit.addLayer(circle).addTo(map);
-            // feature.layer = Inuit;
-
-        } else if (feature.properties.PartnerID === 13) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], six).addTo(map);
-            Six.addLayer(circle).addTo(map);
-            // feature.layer = Six;
-
-        } else if (feature.properties.PartnerID === 14) {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X], tung_inuit).addTo(map);
-            Tung_inuit.addLayer(circle).addTo(map);
-            // feature.layer = Tung_inuit;
-
-        } else {
-            var circle = L.circleMarker([feature.properties.Y, feature.properties.X]).addTo(map);
-        }
-            circle.on('click', function() {
-                // console.log(marker.title)
-                $('#data .sidebar-header').text(feature.properties.Partner)
-                $('#data .website').text(feature.properties.Website)
-                $('#data .email').text(feature.properties.Email)
-                $('#data .contact').text(feature.properties.Contact)
-                $('#data .phone').text(feature.properties.Phone)
-                $('#data .description_text').text(feature.properties.Description)
-                if (checkclick === false) {
-                    sidebar.open('#sidebar');
-                    $('#data').addClass('active');
-                    checkclick = true;
-                } else {
-                    sidebar.close('#sidebar');
-                    checkclick = false;
-                }
-            })
-            circle.bindPopup(feature.properties.Name);
-        },
-            // onEachFeature: onEachFeature
-})
-map.addLayer(fwblayer);
-
-var controlSearch = new L.Control.Search({
-    position:'topright',
-    layer: Allied,
-    initial: false,
-    zoom: 12,
-    marker: false
-});
-
-map.addControl( controlSearch );
 
     //     marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
     // marker.bindPopup('title: '+ title );
@@ -575,7 +480,133 @@ L.control.layers(communities).addTo(map);
 // readData(data2);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
+ // ***************************************************************************//
+// working loading of data
+var fwblayer = L.geoJSON(data2, {
+    pointToLayer: function(feature, latlng) {
+        // return L.circleMarker(latlng, union);
+        // var loc = latlng
+        // var title = (feature.properties.Name)
+        // marker = new L.Marker(new L.latLng(loc),  {title: title}, {icon: union})
+
+        if (feature.properties.PartnerID === 1) {
+            var circle = L.circleMarker(latlng,  allied);
+            Union2.addLayer(circle);
+
+        } else if (feature.properties.PartnerID === 2) {
+            var circle = L.circleMarker(latlng,  allied);
+            Allied.addLayer(circle).addTo(map);
+
+
+        } else if (feature.properties.PartnerID === 3) {
+            var circle = L.circleMarker(latlng, rama);
+            Rama.addLayer(circle).addTo(map);
+            // feature.layer = Rama;
+
+        } else if (feature.properties.PartnerID === 4) {
+            var circle = L.circleMarker(latlng, treaty3);
+            Treaty3.addLayer(circle).addTo(map);
+            // feature.layer = Treaty3;
+        } else if (feature.properties.PartnerID === 5) {
+            var circle = L.circleMarker(latlng, independant);
+            Independent.addLayer(circle).addTo(map);
+            // feature.layer = Independent;
+
+        } else if (feature.properties.PartnerID === 6) {
+            var circle = L.circleMarker(latlng, metis);
+            Metis.addLayer(circle).addTo(map);
+            // feature.layer = Metis;
+
+        } else if (feature.properties.PartnerID === 7) {
+            var circle = L.circleMarker(latlng, sauga);
+            Sauga.addLayer(circle).addTo(map);
+            // feature.layer = Sauga;
+
+        } else if (feature.properties.PartnerID === 8) {
+            var circle = L.circleMarker(latlng, mohawk);
+            Mohawk.addLayer(circle).addTo(map);
+            // feature.layer = Mohawk;
+
+        } else if (feature.properties.PartnerID === 9) {
+            var circle = L.circleMarker(latlng, aski);
+            Aski.addLayer(circle).addTo(map);
+            // feature.layer = Aski;
+
+        } else if (feature.properties.PartnerID === 10) {
+            var circle = L.circleMarker(latlng, friendship);
+            Friendship.addLayer(circle).addTo(map);
+            // feature.layer = Friendship;
+
+        } else if (feature.properties.PartnerID === 11) {
+            var circle = L.circleMarker(latlng, onwa);
+            Onwa.addLayer(circle).addTo(map);
+            // feature.layer = Onwa;
+
+        } else if (feature.properties.PartnerID === 12) {
+            var circle = L.circleMarker(latlng, inuit);
+            Inuit.addLayer(circle).addTo(map);
+            // feature.layer = Inuit;
+
+        } else if (feature.properties.PartnerID === 13) {
+            var circle = L.circleMarker(latlng, six);
+            Six.addLayer(circle).addTo(map);
+            // feature.layer = Six;
+
+        } else if (feature.properties.PartnerID === 14) {
+            var circle = L.circleMarker(latlng, tung_inuit);
+            Tung_inuit.addLayer(circle).addTo(map);
+
+        } else {
+            circle = L.circleMarker(latlng);
+        }
+            circle.on('click', function() {
+                // console.log(marker.title)
+                $('#data .sidebar-header').text(feature.properties.Partner)
+                $('#data .website').text(feature.properties.Website)
+                $('#data .email').text(feature.properties.Email)
+                $('#data .contact').text(feature.properties.Contact)
+                $('#data .phone').text(feature.properties.Phone)
+                $('#data .description_text').text(feature.properties.Description)
+                if (checkclick === false) {
+                    sidebar.open('#sidebar');
+                    $('#data').addClass('active');
+                    checkclick = true;
+                } else {
+                    sidebar.close('#sidebar');
+                    checkclick = false;
+                }
+            })
+            circle.bindPopup(feature.properties.Name )
+        },
+        onEachFeature: function (feature, layer) {
+       feature.layer = layer;
+   }
+            // onEachFeature: onEachFeature
+})
+map.addLayer(fwblayer);
 //  ***************************************************************************//
+
+
+    var searchCtrl = L.control.fuseSearch()
+    searchCtrl.addTo(map);
+
+    searchCtrl.indexFeatures(data2, ['Name', 'Partner']);
+	////////////populate map with markers from sample data
+	// for(i in data) {
+	// 	var title = data[i].title,	//value searched
+	// 		loc = data[i].loc,		//position found
+	// 		marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
+	// 	marker.bindPopup('title: '+ title );
+	// 	markersLayer.addLayer(marker);
+	// }
+
+
+
+
+
+
+
+
 
 
    //*****************************//

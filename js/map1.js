@@ -502,6 +502,11 @@ function readData(data2){
         });
 };
 
+
+var searchCtrl = L.control.fuseSearch()
+searchCtrl.addTo(map);
+
+searchCtrl.indexFeatures(data2, ['Name', 'Partner']);
 // var markers = L.markerClusterGroup();
 
 // map.addLayer(markers);
