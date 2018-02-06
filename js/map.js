@@ -146,7 +146,6 @@ var tung_inuit = {
 
 //******************************************************************************
 var Union = L.layerGroup().addTo(map);
-var Union2 = L.layerGroup().addTo(map);
 
 var Allied = L.layerGroup().addTo(map);
 var Rama = L.layerGroup().addTo(map);
@@ -225,19 +224,13 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 // working loading of data
 var fwblayer = L.geoJSON(data3, {
     pointToLayer: function(feature, latlng) {
-        // return L.circleMarker(latlng, union);
-        // var loc = latlng
-        // var title = (feature.properties.Name)
-        // marker = new L.Marker(new L.latLng(loc),  {title: title}, {icon: union})
 
         if (feature.properties.PartnerID === 1) {
             var circle = L.circleMarker(latlng,  union);
-            Union2.addLayer(circle);
-            feature.layer = union;
+            Union.addLayer(circle).addTo(map);
         } else if (feature.properties.PartnerID === 2) {
             var circle = L.circleMarker(latlng,  allied);
             Allied.addLayer(circle).addTo(map);
-
 
         } else if (feature.properties.PartnerID === 3) {
             var circle = L.circleMarker(latlng, rama);
