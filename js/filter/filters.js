@@ -54,7 +54,7 @@ container.forEach(function(item) {
     $("#sidebar #profile .filter_container").append(
         `<div class="accordion">
         <div class="accordion-section">
-        <a class="accordion-section-title"  href="#accordion-${name}"> NAME: ${item.name}</a>
+        <a class="accordion-section-title"  href="#accordion-${name}">${item.name}</a>
         <div id="accordion-${name}" class="accordion-section-content">
         </div>
         </div>`
