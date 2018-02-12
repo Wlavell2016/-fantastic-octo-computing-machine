@@ -304,6 +304,7 @@ L.Control.FuseSearch = L.Control.extend({
                 } else {
                     _this._panAndPopup(feature, popup);
                     // added by william
+                    _this.hidePanel();
                     map.flyTo([feature.layer.feature.properties.Y, feature.layer.feature.properties.X], 10)
                     console.log(feature.layer.feature.properties.Name)
                     // $('#data .sidebar-header').text(feature.layer.feature.properties.Partner)

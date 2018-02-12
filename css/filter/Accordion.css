@@ -1,22 +1,47 @@
-/* *,
+*,
 *:after,
 *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
+    /* margin: 0;
+    padding: 0; */
+    /* box-sizing: border-box; */
 
+}
+
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  }
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  }
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  underline;
+  }
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  underline;
+  }
 .accordion-section-content p  {
     cursor: pointer;
 
 }
 
  .filter_container {
-    border: red solid 2px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration:none;
+    margin-left: 0;
+    margin-right: 0;
+
+
+}
+
+
+
 }
 
 
@@ -30,7 +55,7 @@ box-sizing:border-box;
 overflow:hidden;
 box-shadow:0px 1px 3px rgba(0,0,0,0.25);
 border-radius:3px;
-background:#f7f7f7;
+ background:#f7f7f7;
 }
 /*----- Section Titles -----*/
 .accordion-section-title {
@@ -38,15 +63,18 @@ width:100%;
 padding:15px;
 display:inline-block;
 border-bottom:1px solid #1a1a1a;
-background:#333;
+background:#50adff;
+/* background: #f7f7f7; */
 transition:all linear 0.15s;
 /* Type */
+#0074d9
 font-size:1.200em;
 text-shadow:0px 1px 0px #1a1a1a;
 color:#fff;
 }
 .accordion-section-title.active, .accordion-section-title:hover {
-background:#4c4c4c;
+ background:#0074d9;
+/* background:#50adff;  */
 /* Type */
 text-decoration:none;
 }
